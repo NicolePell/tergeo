@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :scourgify,
-  ecto_repos: [Scourgify.Repo]
+config :tergeo,
+  ecto_repos: [Tergeo.Repo]
 
 # Configures the endpoint
-config :scourgify, Scourgify.Endpoint,
+config :tergeo, Tergeo.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Jqt0pa/Nkg0duIYGA6+9C6ox65x642+7qoNQv7mod4OM8TbfmBoMPCkAgRv9KciS",
-  render_errors: [view: Scourgify.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Scourgify.PubSub,
+  render_errors: [view: Tergeo.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Tergeo.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -25,5 +25,3 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
-
-config :hound, browser: :chrome

@@ -3,5 +3,5 @@
 
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(Scourgify.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(Tergeo.Repo, :manual)
 

@@ -1,5 +1,5 @@
-defmodule Scourgify.ErrorView do
-  use Scourgify.Web, :view
+defmodule Tergeo.ErrorView do
+  use Tergeo.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

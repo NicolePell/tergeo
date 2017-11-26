@@ -1,14 +1,14 @@
-defmodule Scourgify.Endpoint do
-  use Phoenix.Endpoint, otp_app: :scourgify
+defmodule Tergeo.Endpoint do
+  use Phoenix.Endpoint, otp_app: :tergeo
 
-  socket "/socket", Scourgify.UserSocket
+  socket "/socket", Tergeo.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :scourgify, gzip: false,
+    at: "/", from: :tergeo, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,8 +35,8 @@ defmodule Scourgify.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_scourgify_key",
+    key: "_tergeo_key",
     signing_salt: "y8HHSJQM"
 
-  plug Scourgify.Router
+  plug Tergeo.Router
 end

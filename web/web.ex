@@ -1,12 +1,12 @@
-defmodule Scourgify.Web do
+defmodule Tergeo.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use Scourgify.Web, :controller
-      use Scourgify.Web, :view
+      use Tergeo.Web, :controller
+      use Tergeo.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -30,12 +30,12 @@ defmodule Scourgify.Web do
     quote do
       use Phoenix.Controller
 
-      alias Scourgify.Repo
+      alias Tergeo.Repo
       import Ecto
       import Ecto.Query
 
-      import Scourgify.Router.Helpers
-      import Scourgify.Gettext
+      import Tergeo.Router.Helpers
+      import Tergeo.Gettext
     end
   end
 
@@ -49,9 +49,9 @@ defmodule Scourgify.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Scourgify.Router.Helpers
-      import Scourgify.ErrorHelpers
-      import Scourgify.Gettext
+      import Tergeo.Router.Helpers
+      import Tergeo.ErrorHelpers
+      import Tergeo.Gettext
     end
   end
 
@@ -65,10 +65,10 @@ defmodule Scourgify.Web do
     quote do
       use Phoenix.Channel
 
-      alias Scourgify.Repo
+      alias Tergeo.Repo
       import Ecto
       import Ecto.Query
-      import Scourgify.Gettext
+      import Tergeo.Gettext
     end
   end
 

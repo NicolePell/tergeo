@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :scourgify, Scourgify.Endpoint,
+config :tergeo, Tergeo.Endpoint,
   http: [port: 4001],
   server: true
 
@@ -10,9 +10,11 @@ config :scourgify, Scourgify.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :scourgify, Scourgify.Repo,
+config :tergeo, Tergeo.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "scourgify",
-  database: "scourgify_test",
+  username: "tergeo",
+  database: "tergeo_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+  config :hound, browser: :chrome

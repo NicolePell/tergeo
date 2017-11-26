@@ -1,3 +1,3 @@
-defmodule Scourgify.PageViewTest do
-  use Scourgify.ConnCase, async: true
+defmodule Tergeo.PageViewTest do
+  use Tergeo.ConnCase, async: true
 end

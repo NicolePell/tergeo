@@ -1,4 +1,4 @@
-# Scourgify
+# Tergeo
 
 To start your Phoenix app:
 

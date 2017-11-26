@@ -1,10 +1,10 @@
-defmodule Scourgify.Mixfile do
+defmodule Tergeo.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :scourgify,
-      name: "Scourgify",
+      app: :tergeo,
+      name: "Tergeo",
       version: "0.0.1",
       elixir: "~> 1.2",
       elixirc_paths: elixirc_paths(Mix.env),
@@ -21,7 +21,7 @@ defmodule Scourgify.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Scourgify, []},
+      mod: {Tergeo, []},
       applications: [
         :cowboy,
         :gettext,

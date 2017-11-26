@@ -1,4 +1,4 @@
-defmodule Scourgify do
+defmodule Tergeo do
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
@@ -9,23 +9,23 @@ defmodule Scourgify do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(Scourgify.Repo, []),
+      supervisor(Tergeo.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(Scourgify.Endpoint, []),
-      # Start your own worker by calling: Scourgify.Worker.start_link(arg1, arg2, arg3)
-      # worker(Scourgify.Worker, [arg1, arg2, arg3]),
+      supervisor(Tergeo.Endpoint, []),
+      # Start your own worker by calling: Tergeo.Worker.start_link(arg1, arg2, arg3)
+      # worker(Tergeo.Worker, [arg1, arg2, arg3]),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Scourgify.Supervisor]
+    opts = [strategy: :one_for_one, name: Tergeo.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Scourgify.Endpoint.config_change(changed, removed)
+    Tergeo.Endpoint.config_change(changed, removed)
     :ok
   end
 end

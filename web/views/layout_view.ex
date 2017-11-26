@@ -1,3 +1,3 @@
-defmodule Scourgify.LayoutView do
-  use Scourgify.Web, :view
+defmodule Tergeo.LayoutView do
+  use Tergeo.Web, :view
 end

@@ -1,4 +1,4 @@
-defmodule Scourgify.ChannelCase do
+defmodule Tergeo.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,22 +20,22 @@ defmodule Scourgify.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias Scourgify.Repo
+      alias Tergeo.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
 
       # The default endpoint for testing
-      @endpoint Scourgify.Endpoint
+      @endpoint Tergeo.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Scourgify.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Tergeo.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Scourgify.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Tergeo.Repo, {:shared, self()})
     end
 
     :ok

@@ -1,5 +1,5 @@
-defmodule Scourgify.Router do
-  use Scourgify.Web, :router
+defmodule Tergeo.Router do
+  use Tergeo.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule Scourgify.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Scourgify do
+  scope "/", Tergeo do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Scourgify do
+  # scope "/api", Tergeo do
   #   pipe_through :api
   # end
 end

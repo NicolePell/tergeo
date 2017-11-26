@@ -1,3 +1,3 @@
-defmodule Scourgify.PageView do
-  use Scourgify.Web, :view
+defmodule Tergeo.PageView do
+  use Tergeo.Web, :view
 end

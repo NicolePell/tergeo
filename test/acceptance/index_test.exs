@@ -1,7 +1,7 @@
-defmodule Scourgify.Acceptance.IndexTest do
-  use Scourgify.AcceptanceCase
+defmodule Tergeo.Acceptance.IndexTest do
+  use Tergeo.AcceptanceCase
   
-  alias Scourgify.IndexPage
+  alias Tergeo.IndexPage
   
   test "View the list of chores" do
     chores = [

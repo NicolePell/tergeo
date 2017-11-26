@@ -1,4 +1,4 @@
-defmodule Scourgify.ConnCase do
+defmodule Tergeo.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,23 +20,23 @@ defmodule Scourgify.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias Scourgify.Repo
+      alias Tergeo.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
-      import Scourgify.Router.Helpers
+      import Tergeo.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Scourgify.Endpoint
+      @endpoint Tergeo.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Scourgify.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Tergeo.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Scourgify.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Tergeo.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

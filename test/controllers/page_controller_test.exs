@@ -1,5 +1,5 @@
-defmodule Scourgify.PageControllerTest do
-  use Scourgify.ConnCase
+defmodule Tergeo.PageControllerTest do
+  use Tergeo.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

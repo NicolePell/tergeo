@@ -1,4 +1,4 @@
-defmodule Scourgify.ErrorHelpers do
+defmodule Tergeo.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Scourgify.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Scourgify.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Tergeo.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Scourgify.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Tergeo.Gettext, "errors", msg, opts)
     end
   end
 end
