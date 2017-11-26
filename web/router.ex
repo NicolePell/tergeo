@@ -14,13 +14,11 @@ defmodule Tergeo.Router do
   end
 
   scope "/", Tergeo do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser 
 
     get "/", PageController, :index
+    
+    resources "/chores", ChoreController, only: [:index]
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", Tergeo do
-  #   pipe_through :api
-  # end
+  
 end
