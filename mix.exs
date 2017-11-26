@@ -45,15 +45,16 @@ defmodule Tergeo.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0"},
-      {:ex_machina, "~> 2.1"},
       {:gettext, "~> 0.11"},
-      {:hound, "~> 1.0", only: :test},
       {:phoenix, "~> 1.2.4"},
       {:phoenix_ecto, "~> 3.0"},
       {:phoenix_html, "~> 2.6"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
-      {:postgrex, ">= 0.0.0"}
+      {:postgrex, ">= 0.0.0"},
+      
+      {:ex_machina, "~> 2.1.0", only: :test},
+      {:hound, "~> 1.0", only: :test},
     ]
   end
 

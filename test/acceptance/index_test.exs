@@ -4,12 +4,7 @@ defmodule Tergeo.Acceptance.IndexTest do
   alias Tergeo.IndexPage
   
   test "View the list of chores" do
-    chores = [
-      %{id: 1, description: "Make bed"},
-      %{id: 2, description: "Unpack dishwasher"},
-      %{id: 3, description: "Hang up clothes"},
-      %{id: 4, description: "Clean the floors"}
-    ]
+    chores = insert_list(5, :chore)
 
     navigate_to "/"
 
