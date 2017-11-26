@@ -23,6 +23,8 @@ defmodule Tergeo.AcceptanceCase do
 
       use Hound.Helpers
       hound_session()
+
+      import Tergeo.Factory
     end
   end
 

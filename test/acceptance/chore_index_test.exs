@@ -6,7 +6,7 @@ defmodule Tergeo.Acceptance.IndexTest do
   test "View the list of chores" do
     chores = insert_list(5, :chore)
 
-    navigate_to "/"
+    get conn(), chore_path(conn(), :index)
 
     assert has_chore?(chores |> Enum.at(0))
     assert has_chore?(chores |> Enum.at(1))
