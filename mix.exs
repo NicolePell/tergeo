@@ -45,6 +45,7 @@ defmodule Scourgify.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0"},
+      {:ex_machina, "~> 2.1"},
       {:gettext, "~> 0.11"},
       {:hound, "~> 1.0", only: :test},
       {:phoenix, "~> 1.2.4"},
