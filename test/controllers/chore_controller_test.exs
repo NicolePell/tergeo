@@ -4,8 +4,8 @@ defmodule Tergeo.ChoreControllerTest do
   test "#index renders a list of chores", %{conn: conn} do
     chores = insert_list(5, :chore)
     
-    get build_conn(), chore_path(build_conn(), :index)
+    conn = get build_conn(), chore_path(build_conn(), :index)
 
-    assert html_response(conn, 200) =~ "Your Chore List"
+    assert html_response(conn, 200) =~ "Your Chores List"
   end
 end
