@@ -1,8 +1,6 @@
 defmodule Tergeo.Acceptance.IndexTest do
   use Tergeo.AcceptanceCase
   
-  alias Tergeo.IndexPage
-  
   test "View the list of chores" do
     chores = insert_list(5, :chore)
 

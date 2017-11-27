@@ -1,8 +1,8 @@
 defmodule Tergeo.ChoreControllerTest do
   use Tergeo.ConnCase
 
-  test "#index renders a list of chores", %{conn: conn} do
-    chores = insert_list(5, :chore)
+  test "#index renders a list of chores" do
+    insert_list(5, :chore)
     
     conn = get build_conn(), chore_path(build_conn(), :index)
 
