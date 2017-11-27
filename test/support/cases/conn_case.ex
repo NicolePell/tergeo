@@ -29,6 +29,8 @@ defmodule Tergeo.ConnCase do
 
       # The default endpoint for testing
       @endpoint Tergeo.Endpoint
+
+      import Tergeo.Factory
     end
   end
 
