@@ -1,5 +1,5 @@
 defmodule Tergeo.PageControllerTest do
-  use Tergeo.ConnCase
+  use TergeoWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

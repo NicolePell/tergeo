@@ -1,4 +1,4 @@
-defmodule Tergeo.UserSocket do
+defmodule TergeoWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels

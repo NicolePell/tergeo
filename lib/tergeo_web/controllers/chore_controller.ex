@@ -1,7 +1,7 @@
-defmodule Tergeo.ChoreController do
-  use Tergeo.Web, :controller
+defmodule TergeoWeb.ChoreController do
+  use TergeoWeb.Web, :controller
 
-  alias Tergeo.Chore
+  alias TergeoWeb.Chore
 
   def index(conn, _params) do
     chores = Repo.all(Chore)

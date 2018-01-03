@@ -1,3 +1,3 @@
 defmodule Tergeo.LayoutViewTest do
-  use Tergeo.ConnCase, async: true
+  use TergeoWeb.ConnCase, async: true
 end

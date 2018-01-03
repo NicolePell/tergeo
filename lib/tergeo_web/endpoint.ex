@@ -1,7 +1,7 @@
-defmodule Tergeo.Endpoint do
+defmodule TergeoWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :tergeo
 
-  socket "/socket", Tergeo.UserSocket
+  socket "/socket", TergeoWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -38,5 +38,5 @@ defmodule Tergeo.Endpoint do
     key: "_tergeo_key",
     signing_salt: "y8HHSJQM"
 
-  plug Tergeo.Router
+  plug TergeoWeb.Router
 end

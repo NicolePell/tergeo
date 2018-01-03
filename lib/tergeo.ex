@@ -11,7 +11,7 @@ defmodule Tergeo do
       # Start the Ecto repository
       supervisor(Tergeo.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(Tergeo.Endpoint, []),
+      supervisor(TergeoWeb.Endpoint, []),
       # Start your own worker by calling: Tergeo.Worker.start_link(arg1, arg2, arg3)
       # worker(Tergeo.Worker, [arg1, arg2, arg3]),
     ]
@@ -25,7 +25,7 @@ defmodule Tergeo do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Tergeo.Endpoint.config_change(changed, removed)
+    TergeoWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

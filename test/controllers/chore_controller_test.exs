@@ -1,5 +1,5 @@
 defmodule Tergeo.ChoreControllerTest do
-  use Tergeo.ConnCase
+  use TergeoWeb.ConnCase
 
   test "#index renders a list of chores" do
     insert_list(5, :chore)

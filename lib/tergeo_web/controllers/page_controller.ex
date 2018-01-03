@@ -1,5 +1,5 @@
-defmodule Tergeo.PageController do
-  use Tergeo.Web, :controller
+defmodule TergeoWeb.PageController do
+  use TergeoWeb.Web, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

@@ -1,4 +1,4 @@
-defmodule Tergeo.ErrorHelpers do
+defmodule TergeoWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """

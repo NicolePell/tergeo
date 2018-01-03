@@ -1,5 +1,5 @@
-defmodule Tergeo.ErrorView do
-  use Tergeo.Web, :view
+defmodule TergeoWeb.ErrorView do
+  use TergeoWeb.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

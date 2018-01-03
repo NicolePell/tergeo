@@ -10,10 +10,10 @@ config :tergeo,
   ecto_repos: [Tergeo.Repo]
 
 # Configures the endpoint
-config :tergeo, Tergeo.Endpoint,
+config :tergeo, TergeoWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Jqt0pa/Nkg0duIYGA6+9C6ox65x642+7qoNQv7mod4OM8TbfmBoMPCkAgRv9KciS",
-  render_errors: [view: Tergeo.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: TergeoWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Tergeo.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

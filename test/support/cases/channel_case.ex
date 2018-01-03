@@ -1,4 +1,4 @@
-defmodule Tergeo.ChannelCase do
+defmodule TergeoWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -27,7 +27,7 @@ defmodule Tergeo.ChannelCase do
 
 
       # The default endpoint for testing
-      @endpoint Tergeo.Endpoint
+      @endpoint TergeoWeb.Endpoint
     end
   end
 

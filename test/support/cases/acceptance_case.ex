@@ -1,4 +1,4 @@
-defmodule Tergeo.AcceptanceCase do
+defmodule TergeoWeb.AcceptanceCase do
   @moduledoc """
   This module defines the test case to be used when writing tests that interact with the browser.
   """
@@ -17,9 +17,9 @@ defmodule Tergeo.AcceptanceCase do
       import Ecto.Changeset
       import Ecto.Query
       
-      import Tergeo.Router.Helpers
+      import TergeoWeb.Router.Helpers
 
-      @endpoint Tergeo.Endpoint
+      @endpoint TergeoWeb.Endpoint
 
       use Hound.Helpers
       hound_session()

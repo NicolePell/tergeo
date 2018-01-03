@@ -1,5 +1,5 @@
 defmodule Tergeo.Acceptance.IndexTest do
-  use Tergeo.AcceptanceCase
+  use TergeoWeb.AcceptanceCase
   
   test "View the list of chores" do
     chores = insert_list(5, :chore)

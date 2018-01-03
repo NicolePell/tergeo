@@ -1,5 +1,5 @@
-defmodule Tergeo.Chore do
-  use Tergeo.Web, :model
+defmodule TergeoWeb.Chore do
+  use TergeoWeb.Web, :model
 
   schema "chores" do
     field :description, :string

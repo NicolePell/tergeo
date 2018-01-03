@@ -1,5 +1,5 @@
-defmodule Tergeo.Router do
-  use Tergeo.Web, :router
+defmodule TergeoWeb.Router do
+  use TergeoWeb.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule Tergeo.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Tergeo do
+  scope "/", TergeoWeb do
     pipe_through :browser 
 
     get "/", PageController, :index
