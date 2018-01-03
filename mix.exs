@@ -45,6 +45,7 @@ defmodule Tergeo.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0"},
+      {:distillery, "~> 1.5", runtime: false},
       {:gettext, "~> 0.11"},
       {:phoenix, "~> 1.2.4"},
       {:phoenix_ecto, "~> 3.0"},
