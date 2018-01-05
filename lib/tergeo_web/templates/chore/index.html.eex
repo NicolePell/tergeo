@@ -1,7 +1,9 @@
-<h1>Your Chores List</h1>
+<section class="chores-list">
+  <h1>Your Chores List</h1>
 
-<%= for chore <- @chores do %>
-  <h2 class="chore-<%= chore.id %>">
-    <%= chore.description %>
-  </h2>
-<% end %>
+  <%= for chore <- @chores do %>
+    <h2 class="chore-<%= chore.id %>">
+      <%= chore.description %>
+    </h2>
+  <% end %>
+</section>

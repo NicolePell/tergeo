@@ -3,7 +3,7 @@ defmodule Tergeo.Factory do
 
   def chore_factory do
     %TergeoWeb.Chore{
-      description: "Cleanify"
+      description: sequence("cleanify")
     }
   end
 end
