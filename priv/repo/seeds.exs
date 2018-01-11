@@ -9,3 +9,14 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Tergeo.Repo
+alias TergeoWeb.Chore
+
+Repo.insert! %Chore {
+  description: "Cleanify!"
+}
+
+Repo.insert! %Chore {
+  description: "Scourgify!"
+}
