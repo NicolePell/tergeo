@@ -1,5 +1,5 @@
 <section class="chores-list container-section">
-  <h2 class="chores-list__heading">Your Chores List</h2>
+  <h4 class="chores-list__heading">Your Chores List</h4>
 
   <%= if Enum.empty? @chores do %>
     <a href="#" class="chores-list__add-chore">Add a chore</a>

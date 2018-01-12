@@ -7,20 +7,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Tergeo!</title>
+    <title>Tergeo!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   </head>
 
   <body>
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">Tergeo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/chores">Chores</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
