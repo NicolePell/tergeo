@@ -37,6 +37,7 @@ config :phoenix, :stacktrace_depth, 20
 config :tergeo, Tergeo.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "tergeo",
+  password: "tergeo",
   database: "tergeo_dev",
-  hostname: "localhost",
+  hostname: "postgres",
   pool_size: 10
