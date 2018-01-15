@@ -15,6 +15,8 @@ defmodule TergeoWeb.Router do
 
   scope "/", TergeoWeb do
     pipe_through :browser 
+
+    get "/", HomeController, :index
     
     resources "/chores", ChoreController, only: [:index]
   end

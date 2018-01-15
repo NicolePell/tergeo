@@ -39,5 +39,5 @@ config :tergeo, Tergeo.Repo,
   username: "tergeo",
   password: "tergeo",
   database: "tergeo_dev",
-  hostname: "postgres",
+  hostname: "localhost",
   pool_size: 10

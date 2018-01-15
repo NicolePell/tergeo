@@ -1,4 +1,4 @@
-defmodule Tergeo.Acceptance.IndexTest do
+defmodule Tergeo.Acceptance.ChoreIndexTest do
   use TergeoWeb.AcceptanceCase
 
   test "View chores page" do
