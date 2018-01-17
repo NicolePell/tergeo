@@ -2,7 +2,7 @@
   <h4 class="chores-list__heading">Your Chores List</h4>
 
   <%= if Enum.empty? @chores do %>
-    <a href="#" class="chores-list__add-chore">Add a chore</a>
+    <p class="chores-list__no-chores">You haven't added any chores yet.</p>
   <% else %>
     <ul>
       <%= for chore <- @chores do %>
@@ -14,4 +14,7 @@
       <% end %>
     </ul>
   <% end %>
+  
+  <a href="/chores/new" class="chores-list__add-chore">Add a new chore</a>
+  
 </section>

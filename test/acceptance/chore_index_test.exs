@@ -7,10 +7,19 @@ defmodule Tergeo.Acceptance.ChoreIndexTest do
     find_element(:class, "chores-list")
   end
 
-  test "Link to add chores is shown when no chores have been added" do
+  test "A message is shown when I haven't added any chores yet" do
     navigate_to("/chores")
 
-    find_element(:class, "chores-list__add-chore")
+    find_element(:class, "chores-list__no-chores")
+  end
+
+  test "When I click the button to add a new chore, I am takent to the new chore form" do
+    navigate_to("/chores")
+    add_chore_button = find_element(:class, "chores-list__add-chore")
+
+    click(add_chore_button)
+
+    assert current_path() == "/chores/new"
   end
 
   test "List of chores are displayed" do
