@@ -24,7 +24,7 @@ defmodule TergeoWeb.AcceptanceCase do
       use Hound.Helpers
       hound_session()
 
-      import Tergeo.Factory
+      import Tergeo.FactoryHelpers
     end
   end
 

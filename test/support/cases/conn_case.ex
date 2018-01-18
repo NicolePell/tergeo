@@ -30,7 +30,7 @@ defmodule TergeoWeb.ConnCase do
       # The default endpoint for testing
       @endpoint TergeoWeb.Endpoint
 
-      import Tergeo.Factory
+      import Tergeo.FactoryHelpers
     end
   end
 
