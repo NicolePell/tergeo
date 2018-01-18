@@ -8,4 +8,10 @@ defmodule TergeoWeb.ChoreController do
     render conn, "index.html", chores: chores
   end
 
+  def new(conn, _params) do
+    changeset = Chore.changeset(%Chore{}, %{})
+
+    render conn, "new.html", changeset: changeset
+  end
+
 end

@@ -6,4 +6,10 @@ defmodule TergeoWeb.Chore do
 
     timestamps()
   end
+
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:description])
+  end
+
 end
