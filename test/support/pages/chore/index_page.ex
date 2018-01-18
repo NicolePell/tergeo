@@ -5,7 +5,7 @@ defmodule Tergeo.ChoreIndexPage do
     navigate_to("/chores")
   end
 
-  def add_chore_button() do
+  def click_add_chore_button() do
     find_element(:class, "chores-list__add-chore")
     |> click
   end
