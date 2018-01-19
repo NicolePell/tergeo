@@ -10,7 +10,6 @@ defmodule Tergeo.ChoreControllerTest do
     assert html_response(conn, 200) =~ chore.description
   end
 
-  @tag :current
   test "#new renders a chore form" do
     conn = get build_conn(), chore_path(build_conn(), :new)
 
