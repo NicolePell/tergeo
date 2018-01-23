@@ -9,4 +9,8 @@ defmodule Tergeo.ChoreNewPage do
     fill_field({:class, "chore-form__description"}, description)
   end
 
+  def submit_form() do
+    click({:class, "chore-form__submit"})
+  end
+
 end

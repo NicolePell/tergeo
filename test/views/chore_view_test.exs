@@ -4,7 +4,6 @@ defmodule Tergeo.ChoreViewTest do
 
   alias TergeoWeb.Chore
 
-  @tag :current
   test "renders new.html" do 
     changeset = Chore.changeset(%Chore{})
     content = render_to_string(TergeoWeb.ChoreView, 

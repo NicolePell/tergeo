@@ -15,25 +15,13 @@ defmodule Tergeo.Acceptance.ChoreNewTest do
     ChoreIndexPage.visit()
     ChoreIndexPage.click_add_chore_button()
 
-    ChoreNewPage.fill_in_form(description: "Aqua Eructo!")
+    ChoreNewPage.fill_in_form("Aqua Eructo!")
     ChoreNewPage.submit_form()
 
     assert_current_path(ChoreIndexPage.path())
-    assert ChoreIndexPage.has_chore_title?('Aqua Eructo!')
-    assert ChoreIndexPage.has_flash_message?('Chore created successfully.')
+    assert ChoreIndexPage.has_chore_description?("Aqua Eructo!") 
+    refute ChoreIndexPage.has_chore_description?("Chore doesn't exist") 
+    assert ChoreIndexPage.has_flash_message?("Your chore has been added successfully!")
   end
   
 end
-
-
-# test "redirects to show when data is valid", %{conn: conn} do
-#   user = insert(:user)
-
-#   conn = conn
-#   |> assign(:user, user)
-#   |> post(video_path(conn, :create), video: @create_attrs)
-
-#   video = Video |> Ecto.Query.last |> Catcasts.Repo.one
-#   assert redirected_to(conn) == video_path(conn, :show, video)
-#   assert get_flash(conn, :info) == "Video created successfully."
-# end
