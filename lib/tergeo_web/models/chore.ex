@@ -10,6 +10,7 @@ defmodule TergeoWeb.Chore do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:description])
+    |> validate_required([:description])
   end
 
 end
