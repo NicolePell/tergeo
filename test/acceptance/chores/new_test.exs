@@ -24,14 +24,13 @@ defmodule Tergeo.Acceptance.ChoreNewTest do
     assert ChoreIndexPage.has_flash_message?("Your chore has been added successfully!")
   end
 
-  @tag :current
   test "when I submit a chore without a description, I see a message that the description can't be blank" do
     ChoreIndexPage.visit()
     ChoreIndexPage.click_add_chore_button()
 
     ChoreNewPage.submit_form()
 
-    assert ChoreNewPage.has_message?("Description can't be blank")
+    assert ChoreNewPage.has_help_block?("Description can't be blank")
   end
   
 end

@@ -17,11 +17,16 @@ defmodule TergeoWeb.ChoreController do
 
   def create(conn, %{"chore" => chore}) do
     changeset = Chore.changeset(%Chore{}, chore)
-    Repo.insert(changeset)
+    
+    case Repo.insert(changeset) do
+      {:ok, chore} -> 
+        conn
+        |> put_flash(:info, "Your chore has been added successfully!")
+        |> redirect(to: chore_path(conn, :index))
+      {:error, changeset} -> 
+        render conn, "new.html", changeset: changeset
+    end
 
-    conn
-    |> put_flash(:info, "Your chore has been added successfully!")
-    |> redirect(to: chore_path(conn, :index))
   end
 
 end

@@ -13,8 +13,8 @@ defmodule Tergeo.ChoreNewPage do
     click({:class, "chore-form__submit"})
   end
 
-  def has_message?(message) do
-    validation = find_element(:class, "alert")
+  def has_help_block?(message) do
+    validation = find_element(:class, "help-block")
 
     visible_text(validation) == message
   end
