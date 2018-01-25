@@ -8,7 +8,9 @@
       <%= for chore <- @chores do %>
         <div class="chores-list__item-container">
           <li class="chores-list__chore-<%= chore.id %>">
-            <%= chore.description %>
+            <a class="chores-list__chore-link-<%= chore.id %>" href="<%= chore_path(@conn, :show, chore) %>">
+              <%= chore.description %>
+            </a>
           </li>
         </div>
       <% end %>

@@ -18,7 +18,12 @@ defmodule TergeoWeb.Router do
 
     get "/", HomeController, :index
     
-    resources "/chores", ChoreController, only: [:index, :new, :create]
+    resources "/chores", ChoreController, only: [
+      :index, 
+      :new, 
+      :create, 
+      :show
+    ]
   end
   
 end

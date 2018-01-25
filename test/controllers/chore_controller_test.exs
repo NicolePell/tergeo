@@ -36,4 +36,11 @@ defmodule Tergeo.ChoreControllerTest do
     
     assert chore_count(Chore) == count_before
   end
+
+  test "#show renders the chore details page" do
+    chore = insert(:chore)
+    conn = get build_conn(), chore_path(build_conn(), :show, chore)
+    assert html_response(conn, :ok) =~ ~r/#{chore.description}/s
+  end
+
 end

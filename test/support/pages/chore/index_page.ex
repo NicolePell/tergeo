@@ -34,4 +34,9 @@ defmodule Tergeo.ChoreIndexPage do
     find_element(:class, "chores-list__no-chores")
   end
 
+  def view_chore(chore) do
+    find_element(:class, "chores-list__chore-link-#{chore.id}")
+    |> click
+  end
+
 end

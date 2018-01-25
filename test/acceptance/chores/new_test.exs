@@ -4,7 +4,7 @@ defmodule Tergeo.Acceptance.ChoreNewTest do
   alias Tergeo.ChoreIndexPage
   alias Tergeo.ChoreNewPage
 
-  test "when I click the add a chore button I am navigated to the new chore form " do
+  test "when I click the add a chore button I am navigated to the new chore form" do
     ChoreIndexPage.visit()
     ChoreIndexPage.click_add_chore_button()
     
