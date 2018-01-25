@@ -24,7 +24,9 @@ defmodule TergeoWeb.ChoreController do
         |> put_flash(:info, "Your chore has been added successfully!")
         |> redirect(to: chore_path(conn, :index))
       {:error, changeset} -> 
-        render conn, "new.html", changeset: changeset
+        conn
+        |> put_flash(:error, "Your chore could not be created, please fix the errors below")
+        |> render("new.html", changeset: changeset)
     end
 
   end

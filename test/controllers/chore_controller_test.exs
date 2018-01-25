@@ -30,10 +30,9 @@ defmodule Tergeo.ChoreControllerTest do
     assert Repo.get_by!(Chore, @valid_attrs).description == "Aqua Eructo!"
   end
 
-  @tag :current
   test "#create returns user to new form and shows error message when description is blank" do
     count_before = chore_count(Chore)
-    conn = post build_conn(), chore_path(build_conn(), :create), chore: @invalid_attrs
+    post build_conn(), chore_path(build_conn(), :create), chore: @invalid_attrs
     
     assert chore_count(Chore) == count_before
   end

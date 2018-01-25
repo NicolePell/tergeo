@@ -19,4 +19,10 @@ defmodule Tergeo.ChoreNewPage do
     visible_text(validation) == message
   end
 
+  def has_flash_message?(message) do
+    alert_message = find_element(:class, "alert-danger")
+
+    visible_text(alert_message) == message
+  end
+
 end

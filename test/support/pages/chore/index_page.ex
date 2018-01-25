@@ -25,7 +25,7 @@ defmodule Tergeo.ChoreIndexPage do
   end
 
   def has_flash_message?(message) do
-    alert_message = find_element(:class, "alert")
+    alert_message = find_element(:class, "alert-info")
 
     visible_text(alert_message) == message
   end
