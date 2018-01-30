@@ -3,6 +3,7 @@
     <a href="/" class="brand-logo">Tergeo</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><%= link "Chores", to: chore_path(@conn, :index) %></li>
+      <li><%= link "Add chore", to: chore_path(@conn, :new) %></li>
       <li><%= link "Sign in with Google", to: auth_path(@conn, :request, "google", scope: "email profile"), class: "button" %></li>
     </ul>
   </div>

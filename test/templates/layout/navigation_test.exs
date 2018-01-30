@@ -13,5 +13,12 @@ defmodule TergeoWeb.NavigationTest do
 
     assert html_response(conn, 200) =~ "<a href=\"/chores\">Chores</a>"
   end
+
+  @tag :current
+  test "shows a link to add a new chore" do
+    conn = get build_conn(), "/"
+
+    assert html_response(conn, 200) =~ "<a href=\"/chores/new\">Add chore</a>"
+  end
   
 end
