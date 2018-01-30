@@ -13,16 +13,10 @@
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">Tergeo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/chores">Chores</a></li>
-        </ul>
-      </div>
-    </nav>
-
+    <%= render "_navigation.html", conn: @conn %>
+    
     <div class="container">
+
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

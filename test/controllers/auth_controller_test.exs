@@ -10,7 +10,6 @@ defmodule Tergeo.AuthControllerTest do
     assert redirected_to(conn, 302)
   end
   
-  @tag :current
   test "creates user from Google information" do
     build_conn()
     |> assign(:ueberauth_auth, @ueberauth_auth)
