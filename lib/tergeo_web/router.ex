@@ -17,13 +17,11 @@ defmodule TergeoWeb.Router do
     pipe_through :browser 
 
     get "/", HomeController, :index
-    
-    resources "/chores", ChoreController, only: [
-      :index, 
-      :new, 
-      :create, 
-      :show
-    ]
+    resources "/chores", ChoreController
+  end
+  
+  scope "/auth", TergeoWeb do
+    get "/:provider", AuthController, :request
   end
   
 end

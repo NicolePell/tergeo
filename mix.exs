@@ -30,7 +30,9 @@ defmodule Tergeo.Mixfile do
         :phoenix_ecto,
         :phoenix_html,
         :phoenix_pubsub,
-        :postgrex
+        :postgrex,
+        :ueberauth,
+        :ueberauth_google
       ]
     ]
   end
@@ -53,6 +55,8 @@ defmodule Tergeo.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
       {:postgrex, ">= 0.0.0"},
+      {:ueberauth, "~> 0.4"},
+      {:ueberauth_google, "~> 0.7"},
       
       {:ex_machina, "~> 2.1.0", only: :test},
       {:hound, "~> 1.0", only: :test},
