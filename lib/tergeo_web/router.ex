@@ -21,7 +21,10 @@ defmodule TergeoWeb.Router do
   end
   
   scope "/auth", TergeoWeb do
+    pipe_through :browser
+
     get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :new
   end
   
 end
