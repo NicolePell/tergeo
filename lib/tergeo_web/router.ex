@@ -7,6 +7,8 @@ defmodule TergeoWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+
+    plug Tergeo.Plugs.SetUser
   end
 
   pipeline :api do
@@ -23,6 +25,7 @@ defmodule TergeoWeb.Router do
   scope "/auth", TergeoWeb do
     pipe_through :browser
 
+    get "/signout", AuthController, :delete
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :new
   end

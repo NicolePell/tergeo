@@ -30,11 +30,17 @@ defmodule TergeoWeb.AuthController do
       {:error, _reason} ->
         conn
         |> put_flash(:error, "There was error attempting to sign you in.")
-        |> redirect(to: chore_path(conn, :index))
+        |> redirect(to: home_path(conn, :index))
     end
   end
 
-  def insert_or_update_user(changeset) do
+  def delete(conn, _params) do
+    conn
+    |> configure_session(drop: true)
+    |> redirect(to: home_path(conn, :index))
+  end
+
+  defp insert_or_update_user(changeset) do
     case Repo.get_by(User, email: changeset.changes.email) do
       nil ->
         Repo.insert(changeset)
