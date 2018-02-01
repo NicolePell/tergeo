@@ -3,13 +3,13 @@ defmodule Tergeo.Acceptance.ChoreIndexTest do
 
   alias Tergeo.ChoreIndexPage
 
-  test "A message is shown when I haven't added any chores yet" do
+  test "a message is shown when I haven't added any chores yet" do
     ChoreIndexPage.visit()
 
     assert ChoreIndexPage.has_no_chores_message?()
   end
 
-  test "List of chores are displayed" do
+  test "a list of chores are displayed" do
     chores = insert_list(3, :chore)
 
     ChoreIndexPage.visit()
