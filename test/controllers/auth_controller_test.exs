@@ -10,7 +10,7 @@ defmodule Tergeo.AuthControllerTest do
     assert redirected_to(conn, 302)
   end
   
-  test "#create successfuly creates a user from Google information" do
+  test "#new successfuly creates a user from Google information" do
     build_conn()
     |> assign(:ueberauth_auth, @ueberauth_auth)
     |> get("/auth/google/callback")
