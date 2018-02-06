@@ -1,5 +1,5 @@
 defmodule Tergeo.UserTest do
-  use Tergeo.ModelCase
+  use Tergeo.DataCase
 
   alias Tergeo.User
 

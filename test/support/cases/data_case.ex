@@ -1,4 +1,4 @@
-defmodule Tergeo.ModelCase do
+defmodule Tergeo.DataCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -21,7 +21,7 @@ defmodule Tergeo.ModelCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Tergeo.ModelCase
+      import Tergeo.DataCase
     end
   end
 

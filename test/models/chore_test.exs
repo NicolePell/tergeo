@@ -1,5 +1,5 @@
 defmodule Tergeo.ChoreTest do
-  use Tergeo.ModelCase
+  use Tergeo.DataCase
 
   alias TergeoWeb.Chore
 
