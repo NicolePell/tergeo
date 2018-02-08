@@ -2,7 +2,7 @@ defmodule Tergeo.ChoreViewTest do
   use TergeoWeb.ConnCase, async: true
   import Phoenix.View
 
-  alias TergeoWeb.Chore
+  alias Tergeo.Chores.Chore
 
   test "renders new.html" do 
     changeset = Chore.changeset(%Chore{})

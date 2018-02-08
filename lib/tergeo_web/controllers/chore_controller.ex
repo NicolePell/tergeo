@@ -1,7 +1,7 @@
 defmodule TergeoWeb.ChoreController do
   use TergeoWeb.Web, :controller
 
-  alias TergeoWeb.Chore
+  alias Tergeo.Chores.Chore
 
   def index(conn, _params) do
     chores = Repo.all(Chore)
@@ -33,6 +33,7 @@ defmodule TergeoWeb.ChoreController do
 
   def show(conn, %{"id" => id}) do
     chore = Repo.get!(Chore, id)
+
     render conn, "show.html", chore: chore
   end
 

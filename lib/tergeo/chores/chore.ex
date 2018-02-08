@@ -1,7 +1,7 @@
-defmodule TergeoWeb.Chore do
+defmodule Tergeo.Chores.Chore do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Tergeo.Chore
+  alias Tergeo.Chores.Chore
 
   schema "chores" do
     field :description, :string

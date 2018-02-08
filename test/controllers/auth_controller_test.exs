@@ -16,7 +16,6 @@ defmodule Tergeo.AuthControllerTest do
     |> get("/auth/google/callback")
   end
 
-  @tag :current
   test "#delete signs the user out by dropping them from the session" do
     user = insert(:user)
 

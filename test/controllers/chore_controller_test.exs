@@ -1,7 +1,7 @@
 defmodule Tergeo.ChoreControllerTest do
   use TergeoWeb.ConnCase
 
-  alias TergeoWeb.Chore
+  alias Tergeo.Chores.Chore
 
   @valid_attrs %{description: "Aqua Eructo!"}
   @invalid_attrs %{}

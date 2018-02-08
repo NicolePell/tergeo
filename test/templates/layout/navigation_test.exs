@@ -27,7 +27,6 @@ defmodule TergeoWeb.NavigationTest do
     assert html_response(conn, 200) =~ "<a href=\"/chores/new\">Add chore</a>"
   end
   
-  @tag :current
   test "shows a 'Sign out' link when the user has already authenticated" do
     user = insert(:user)
 
