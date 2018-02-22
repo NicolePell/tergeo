@@ -1,10 +1,11 @@
 defmodule TergeoWeb.ChoreController do
   use TergeoWeb.Web, :controller
 
+  alias Tergeo.Chores
   alias Tergeo.Chores.Chore
 
   def index(conn, _params) do
-    chores = Repo.all(Chore)
+    chores = Chores.list_chores
 
     render conn, "index.html", chores: chores
   end
@@ -16,9 +17,7 @@ defmodule TergeoWeb.ChoreController do
   end
 
   def create(conn, %{"chore" => chore}) do
-    changeset = Chore.changeset(%Chore{}, chore)
-    
-    case Repo.insert(changeset) do
+    case Chores.create_chore(chore) do
       {:ok, _chore} -> 
         conn
         |> put_flash(:info, "Your chore has been added successfully!")
@@ -32,7 +31,7 @@ defmodule TergeoWeb.ChoreController do
   end
 
   def show(conn, %{"id" => id}) do
-    chore = Repo.get!(Chore, id)
+    chore = Chores.get_chore!(id)
 
     render conn, "show.html", chore: chore
   end
