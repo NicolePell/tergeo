@@ -1,18 +1,18 @@
-defmodule Tergeo.Houses.House do
+defmodule Tergeo.Groups.Group do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Tergeo.Houses.House
+  alias Tergeo.Groups.Group
 
 
-  schema "houses" do
+  schema "groups" do
     field :name, :string
 
     timestamps()
   end
 
   @doc false
-  def changeset(%House{} = house, attrs) do
-    house
+  def changeset(%Group{} = group, attrs) do
+    group
     |> cast(attrs, [:name])
     |> validate_required([:name])
   end

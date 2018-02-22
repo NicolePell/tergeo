@@ -29,7 +29,7 @@ defmodule Tergeo.Users do
   ## Examples
 
       iex> get_user!(123)
-      %House{}
+      %User{}
 
       iex> get_user!(456)
       ** (Ecto.NoResultsError)

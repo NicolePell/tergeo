@@ -29,7 +29,7 @@ defmodule Tergeo.Chores do
   ## Examples
 
       iex> get_chore!(123)
-      %House{}
+      %Chore{}
 
       iex> get_chore!(456)
       ** (Ecto.NoResultsError)
