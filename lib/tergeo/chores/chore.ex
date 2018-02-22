@@ -1,12 +1,14 @@
 defmodule Tergeo.Chores.Chore do
   use Ecto.Schema
+
   import Ecto.Changeset
-  alias Tergeo.Chores.Chore
 
   schema "chores" do
     field :description, :string
 
     timestamps()
+
+    many_to_many :users, Tergeo.Users.User, join_through: "users_chores"
   end
 
   def changeset(struct, params \\ %{}) do

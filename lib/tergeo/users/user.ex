@@ -1,8 +1,9 @@
 defmodule Tergeo.Users.User do
   use Ecto.Schema
-  import Ecto.Changeset
-  alias Tergeo.Users.User
 
+  import Ecto.Changeset
+
+  alias Tergeo.Users.User
 
   schema "users" do
     field :email, :string
@@ -12,6 +13,8 @@ defmodule Tergeo.Users.User do
     field :token, :string
 
     timestamps()
+
+    many_to_many :chores, Tergeo.Chores.Chore, join_through: "users_chores"
   end
 
   def changeset(%User{} = user, attrs) do
