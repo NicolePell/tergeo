@@ -1,7 +1,7 @@
-defmodule Tergeo.User do
+defmodule Tergeo.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Tergeo.User
+  alias Tergeo.Users.User
 
 
   schema "users" do

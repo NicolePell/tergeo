@@ -1,7 +1,7 @@
 defmodule Tergeo.UserTest do
   use Tergeo.DataCase
 
-  alias Tergeo.User
+  alias Tergeo.Users.User
 
   @valid_attrs %{ 
     first_name: "Severus", 

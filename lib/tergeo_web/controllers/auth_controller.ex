@@ -3,7 +3,7 @@ defmodule TergeoWeb.AuthController do
 
   plug Ueberauth
 
-  alias Tergeo.User
+  alias Tergeo.Users.User
   alias Tergeo.Repo
 
   def new(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
