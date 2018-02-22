@@ -1,9 +1,8 @@
 defmodule Tergeo.Plugs.SetUser do
   import Plug.Conn
-  import Phoenix.Controller
 
   alias Tergeo.Repo
-  alias Tergeo.User
+  alias Tergeo.Users.User
 
   def init(_params) do  
   end

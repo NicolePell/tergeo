@@ -1,1 +1,1 @@
-<a href="/users/new" class="register">Get Started</a>
+<%= link "Get Started", to: auth_path(@conn, :request, "google", scope: "email profile"), class: "register" %>
