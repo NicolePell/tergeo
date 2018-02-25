@@ -9,6 +9,7 @@ defmodule Tergeo.Chores.Chore do
     timestamps()
 
     many_to_many :users, Tergeo.Users.User, join_through: "users_chores"
+    belongs_to :owner, Tergeo.Users.User, foreign_key: :owner_id
   end
 
   def changeset(struct, params \\ %{}) do
