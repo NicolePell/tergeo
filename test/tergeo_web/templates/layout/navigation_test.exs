@@ -26,6 +26,17 @@ defmodule TergeoWeb.NavigationTest do
     
     assert html_response(conn, 200) =~ "<a href=\"/chores/new\">Add chore</a>"
   end
+
+  @tag(:groups)
+  test "shows a 'Start a group' link when the user has signed in" do
+    user = insert(:user)
+
+    conn = build_conn()
+    |> assign(:user, user)
+    |> get("/")
+    
+    assert html_response(conn, 200) =~ "<a class=\"start-group__link\" href=\"/groups/new\">Start a group</a>"
+  end
   
   test "shows a 'Sign out' link when the user has already authenticated" do
     user = insert(:user)

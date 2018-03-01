@@ -20,6 +20,7 @@ defmodule TergeoWeb.Router do
 
     get "/", HomeController, :index
     resources "/chores", ChoreController
+    resources "/groups", GroupController
   end
   
   scope "/auth", TergeoWeb do
