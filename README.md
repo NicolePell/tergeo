@@ -1,5 +1,13 @@
 # Tergeo
 
+#### Requirements:
+
+* Postgres >= 9.6
+* Elixir >= 1.4
+* Phoenix >= 1.3
+* Node >= 9.7
+* NPM >= 5.6
+
 ##### To start this app locally:
 
   * Install dependencies with `mix deps.get`
