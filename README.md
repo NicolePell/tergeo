@@ -1,7 +1,6 @@
 # Tergeo
 
 #### Requirements:
-
 * Postgres 9.6+
 * Elixir 1.4+
 * Phoenix 1.3+
