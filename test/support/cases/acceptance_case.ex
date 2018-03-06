@@ -7,7 +7,7 @@ defmodule TergeoWeb.AcceptanceCase do
 
   using do
     quote do
-      @moduletag :feature
+      @moduletag :acceptance
 
       use Phoenix.ConnTest
 

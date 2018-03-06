@@ -17,5 +17,6 @@
 ##### Running tests:
 
   * Install and start a selenium server, e.g. `brew services start selenium-server-standalone`
-  * Run all the tests with `mix test` or `mix test --trace` to see them run in progress
-  * Run only the current in progress tests with `mix test --only current`
+  * Run all tests without acceptance tests with `mix test` 
+  * OR run all the tests with `mix test --include acceptance`
+  * OR run `mix test --acceptance --trace` to see them run in progress
