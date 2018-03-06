@@ -59,7 +59,7 @@ defmodule Tergeo.Mixfile do
       {:ueberauth_google, "~> 0.7"},
       
       {:ex_machina, "~> 2.1.0", only: :test},
-      {:hound, "~> 1.0", only: :test},
+      {:hound, "~> 1.0", only: :test}
     ]
   end
 
