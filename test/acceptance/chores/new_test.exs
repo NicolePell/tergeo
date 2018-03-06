@@ -5,6 +5,7 @@ defmodule Tergeo.Acceptance.ChoreNewTest do
 
   setup do
     Hound.start_session
+    Hound.Helpers.Cookie.delete_cookies()
 
     ChoreIndexPage.visit()     
     HomePage.sign_test_user_in()
