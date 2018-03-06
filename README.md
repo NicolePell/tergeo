@@ -2,11 +2,11 @@
 
 #### Requirements:
 
-* Postgres >= 9.6
-* Elixir >= 1.4
-* Phoenix >= 1.3
-* Node >= 9.7
-* NPM >= 5.6
+* Postgres 9.6+
+* Elixir 1.4+
+* Phoenix 1.3+
+* Node 7.1+
+* NPM 4.2+
 
 ##### To start this app locally:
 
@@ -27,4 +27,4 @@
   * Install and start a selenium server, e.g. `brew services start selenium-server-standalone`
   * Run all tests without acceptance tests with `mix test` 
   * OR run all the tests with `mix test --include acceptance`
-  * OR run `mix test --acceptance --trace` to see them run in progress
+  * OR run all the tests with `mix test --trace --include acceptance` to see them run in progress
