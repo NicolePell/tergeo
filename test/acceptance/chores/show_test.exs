@@ -1,12 +1,19 @@
 defmodule Tergeo.Acceptance.ChoreShowTest do
   use TergeoWeb.AcceptanceCase
 
-  alias Tergeo.{ChoreIndexPage, ChoreShowPage}
+  alias Tergeo.{ChoreIndexPage, ChoreShowPage, HomePage}
 
+  setup do
+    Hound.start_session
+
+    ChoreIndexPage.visit()  
+    HomePage.sign_test_user_in()
+    
+    :ok
+  end
+  
   test "navigating to a chore shows further details" do
     chore = insert(:chore)
-
-    ChoreIndexPage.visit()
     ChoreIndexPage.view_chore(chore)
     
     assert ChoreShowPage.current_page?(chore)

@@ -1,20 +1,24 @@
 defmodule Tergeo.Acceptance.ChoreNewTest do
   use TergeoWeb.AcceptanceCase
 
-  alias Tergeo.ChoreIndexPage
-  alias Tergeo.ChoreNewPage
+  alias Tergeo.{HomePage, ChoreIndexPage, ChoreNewPage}
+
+  setup do
+    Hound.start_session
+
+    ChoreIndexPage.visit()     
+    HomePage.sign_test_user_in()
+    
+    ChoreIndexPage.click_add_chore_button()
+
+    :ok
+  end
 
   test "when I click the add a chore button I am navigated to the new chore form" do
-    ChoreIndexPage.visit()
-    ChoreIndexPage.click_add_chore_button()
-    
     assert_current_path(ChoreNewPage.path())
   end
   
   test "when I submit a valid a chore, I see my new chore displayed on the index page" do
-    ChoreIndexPage.visit()
-    ChoreIndexPage.click_add_chore_button()
-
     ChoreNewPage.fill_in_form("Aqua Eructo!")
     ChoreNewPage.submit_form()
 
@@ -25,9 +29,6 @@ defmodule Tergeo.Acceptance.ChoreNewTest do
   end
 
   test "when I submit a chore without a description, I see validation messages" do
-    ChoreIndexPage.visit()
-    ChoreIndexPage.click_add_chore_button()
-
     ChoreNewPage.submit_form()
 
     assert ChoreNewPage.has_help_block?("Description can't be blank")
