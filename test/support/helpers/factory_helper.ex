@@ -3,4 +3,6 @@ defmodule Tergeo.FactoryHelpers do
 
   use Tergeo.Factory.Chore
   use Tergeo.Factory.User
+  use Tergeo.Factory.Group
+  
 end

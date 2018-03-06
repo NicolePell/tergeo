@@ -11,7 +11,7 @@ defmodule Tergeo.Groups.Group do
   end
 
   @doc false
-  def changeset(%Group{} = group, attrs) do
+  def changeset(%Group{} = group, attrs \\ %{}) do
     group
     |> cast(attrs, [:name])
     |> validate_required([:name])

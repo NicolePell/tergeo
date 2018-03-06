@@ -1,1 +1,9 @@
-Start a new a group
+<h4>Start your new a group</h4>
+
+<%= form_for @changeset, group_path(@conn, :create), fn f -> %>
+
+  <%= text_input f, :name, placeholder: "Name", class: "group-form__name" %>
+  <%= error_tag f, :name %>
+
+  <%= submit "Start your group", class: "group-form__submit" %>
+<% end %>

@@ -1,0 +1,5 @@
+<section class="group-dashboard container-section">
+  <p class="group-dashboard__group-name">
+    <%= @group.name %>
+  </p>
+</section>
