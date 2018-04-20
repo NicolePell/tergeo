@@ -7,7 +7,8 @@ defmodule Tergeo.Factory.Group do
 
       def group_factory do
         %Group{
-          name: sequence(:name, &"Gryffindor #{&1}"),
+          name: sequence(:name, &"Slytherin #{&1}"),
+          owner: build(:user)
         }
       end
       

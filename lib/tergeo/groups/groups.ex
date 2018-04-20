@@ -4,9 +4,11 @@ defmodule Tergeo.Groups do
   """
 
   import Ecto.Query, warn: false
+
   alias Tergeo.Repo
 
   alias Tergeo.Groups.Group
+  alias Tergeo.Users.User
 
   @doc """
   Returns the list of groups.
@@ -19,6 +21,33 @@ defmodule Tergeo.Groups do
   """
   def list_groups do
     Repo.all(Group)
+  end
+
+  @doc """
+  Returns the list of groups for a given user.
+
+  ## Examples
+
+      iex> list_groups(123)
+      [%Group{}, ...]
+
+  """
+  def list_created_groups(owner) do
+    user = Repo.one from(
+                        u in User, 
+                        where: u.id == ^owner.id, 
+                        preload: [:created_groups]
+          )
+
+    user.created_groups
+    # """
+    # # REVIEW: Had to do this so test would pass. 
+    # # It was failing because the owner association was not loaded on the group.
+    # # Is this really necessary for what is needed here?
+    # # Investigate if this was needed because of using ex_machina
+    # # or something else I'm doing wrong
+    # """
+    # Repo.preload(user.created_groups, :owner)
   end
 
   @doc """

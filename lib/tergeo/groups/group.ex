@@ -1,13 +1,16 @@
 defmodule Tergeo.Groups.Group do
   use Ecto.Schema
+  
   import Ecto.Changeset
+  
   alias Tergeo.Groups.Group
-
 
   schema "groups" do
     field :name, :string
 
     timestamps()
+
+    belongs_to :owner, Tergeo.Users.User, foreign_key: :owner_id
   end
 
   @doc false
