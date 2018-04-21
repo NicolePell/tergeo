@@ -1,0 +1,11 @@
+<%= if Enum.empty? @created_groups do %>
+  <p class="created-groups-list__no-groups">You haven't created any groups yet.</p>
+  <button>
+    <%= link "Start a group now...", to: group_path(@conn, :new) %>
+  </button>
+<% else %>
+  Your Groups
+  <%= for group <- @created_groups do %>
+    <%= group.name %>
+  <% end %>
+<% end %>

@@ -29,4 +29,21 @@ defmodule Tergeo.GroupControllerTest do
     assert html_response(conn, :ok) =~ ~r/#{group.name}/s
   end
 
+  test "#index renders a list of groups that the user has created" do
+    user = insert(:user)
+    group = insert(:group, owner: user)
+
+    other_user = insert(:user)
+    other_group = insert(:group, owner: other_user)
+
+    conn =
+      build_conn()
+      |> assign(:user, user)
+      |> get(group_path(build_conn(), :index))
+
+    assert html_response(conn, 200) =~ "Your Groups"
+    assert html_response(conn, 200) =~ group.name
+    refute html_response(conn, 200) =~ other_group.name
+  end
+
 end

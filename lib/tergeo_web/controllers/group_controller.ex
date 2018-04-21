@@ -4,6 +4,12 @@ defmodule TergeoWeb.GroupController do
   alias Tergeo.Groups
   alias Tergeo.Groups.Group
 
+  def index(conn, _params) do
+    created_groups = Groups.list_created_groups!(conn.assigns.user)
+    
+    render conn, "index.html", created_groups: created_groups
+  end
+
   def new(conn, _params) do
     changeset = Group.changeset(%Group{}, %{})
 

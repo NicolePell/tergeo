@@ -32,7 +32,7 @@ defmodule Tergeo.Groups do
       [%Group{}, ...]
 
   """
-  def list_created_groups(owner) do
+  def list_created_groups!(owner) do
     user = Repo.one from(
                         u in User, 
                         where: u.id == ^owner.id, 
