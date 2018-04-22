@@ -23,7 +23,7 @@ defmodule TergeoWeb.AuthController do
   def delete(conn, _params) do
     conn
     |> configure_session(drop: true)
-    |> redirect(to: home_path(conn, :index))
+    |> redirect(to: group_path(conn, :index))
   end
   
   defp signin(conn, changeset) do
@@ -36,7 +36,7 @@ defmodule TergeoWeb.AuthController do
       {:error, _reason} ->
         conn
         |> put_flash(:error, "There was error attempting to sign you in.")
-        |> redirect(to: home_path(conn, :index))
+        |> redirect(to: group_path(conn, :index))
     end
   end
 

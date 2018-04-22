@@ -1,11 +1,20 @@
-<%= if Enum.empty? @created_groups do %>
-  <p class="created-groups-list__no-groups">You haven't created any groups yet.</p>
-  <button>
-    <%= link "Start a group now...", to: group_path(@conn, :new) %>
-  </button>
-<% else %>
-  Your Groups
-  <%= for group <- @created_groups do %>
-    <%= group.name %>
+<section class="groups-list container-section">
+  <%= if Enum.empty? @created_groups do %>
+    <p class="created-groups-list__no-groups">You haven't created any groups yet.</p>
+    <button>
+      <%= link "Start a group now...", to: group_path(@conn, :new), 
+          class: "created-groups-list__start-group" %>
+    </button>
+  <% else %>
+    <h4 class="created-groups-list__heading">Your Created Groups List</h4>
+    <ul>
+      <%= for group <- @created_groups do %>
+        <div class="groups-list__item-container">
+          <li class="groups-list__group-<%= group.id %>">
+            <%= group.name %>
+          </li>
+        </div>
+      <% end %>
+    </ul>
   <% end %>
-<% end %>
+</section>

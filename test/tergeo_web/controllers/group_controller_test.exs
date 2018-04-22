@@ -6,13 +6,20 @@ defmodule Tergeo.GroupControllerTest do
   @valid_attrs %{name: "Gryffindor"}
 
   test "#new renders a group form" do
-    conn = get build_conn(), group_path(build_conn(), :new)
+    conn = 
+      build_conn()
+      |> assign(:user, insert(:user))
+      |> get(group_path(build_conn(), :new))
 
-    assert html_response(conn, 200) =~ "Start your new a group"
+    assert html_response(conn, 200) =~ "Start your new group"
   end
 
   test "#create successfully creates a group and redirects to the dashboard for that group" do
-    conn = post build_conn(), group_path(build_conn(), :create, group: @valid_attrs)
+    conn = 
+      build_conn()
+      |> assign(:user, insert(:user))
+      |> post(group_path(build_conn(), :create, group: @valid_attrs))
+
     group = Repo.get_by!(Group, @valid_attrs)
     
     assert redirected_to(conn) == group_path(conn, :show, group)
@@ -21,9 +28,11 @@ defmodule Tergeo.GroupControllerTest do
 
   test "#show renders the group dashboard" do
     group = insert(:group)
+    user = insert(:user)
 
     conn =
       build_conn()
+      |> assign(:user, user)
       |> get(group_path(build_conn(), :show, group))
 
     assert html_response(conn, :ok) =~ ~r/#{group.name}/s

@@ -1,20 +1,19 @@
 <section class="chores-list container-section">
-  <h4 class="chores-list__heading">Your Chores List</h4>
-
   <%= if Enum.empty? @chores do %>
     <p class="chores-list__no-chores">You haven't added any chores yet.</p>
   <% else %>
-    <ul>
-      <%= for chore <- @chores do %>
-        <div class="chores-list__item-container">
-          <li class="chores-list__chore-<%= chore.id %>">
-            <a class="chores-list__chore-link-<%= chore.id %>" href="<%= chore_path(@conn, :show, chore) %>">
-              <%= chore.description %>
-            </a>
-          </li>
-        </div>
-      <% end %>
-    </ul>
+    <h4 class="chores-list__heading">Your Chores List</h4>
+      <ul>
+        <%= for chore <- @chores do %>
+          <div class="chores-list__item-container">
+            <li class="chores-list__chore-<%= chore.id %>">
+              <a class="chores-list__chore-link-<%= chore.id %>" href="<%= chore_path(@conn, :show, chore) %>">
+                <%= chore.description %>
+              </a>
+            </li>
+          </div>
+        <% end %>
+      </ul>
   <% end %>
   
   <a href="/chores/new" class="chores-list__add-chore">Add a new chore</a>

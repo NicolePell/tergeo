@@ -1,4 +1,4 @@
-<h4>Start your new a group</h4>
+<h4>Start your new group</h4>
 
 <%= form_for @changeset, group_path(@conn, :create), fn f -> %>
 

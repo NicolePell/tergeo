@@ -1,9 +1,11 @@
 defmodule Tergeo.HomeControllerTest do
   use TergeoWeb.ConnCase
 
-  test "#index has a link to get started" do
-    conn = get build_conn(), home_path(build_conn(), :index)
+  test "#index has a link to start a new group when the user hasn't signed in" do
+    conn = get build_conn(), group_path(build_conn(), :index)
 
-    assert html_response(conn, 200) =~ "Get Started"
+    assert html_response(conn, 200) =~ "You haven't created any groups yet."
+    assert html_response(conn, 200) =~ "Start a group now..."
+    
   end
 end
