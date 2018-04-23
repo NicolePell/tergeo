@@ -78,9 +78,9 @@ defmodule Tergeo.Groups do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_group(attrs \\ %{}) do
-    %Group{}
-    |> Group.changeset(attrs)
+  def create_group(user, group) do
+    Ecto.build_assoc(user, :created_groups)
+    |> Group.changeset(group)
     |> Repo.insert()
   end
 

@@ -20,7 +20,7 @@ defmodule TergeoWeb.GroupController do
   end
 
   def create(conn, %{"group" => group}) do
-    case Groups.create_group(group) do
+    case Groups.create_group(conn.assigns.user, group) do
       {:ok, group} ->
         conn
         |> put_flash(:info, "Your group has been added!")

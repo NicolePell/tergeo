@@ -6,7 +6,7 @@
           class: "created-groups-list__start-group" %>
     </button>
   <% else %>
-    <h4 class="created-groups-list__heading">Your Created Groups List</h4>
+    <h4 class="created-groups-list__heading">Your Created Groups</h4>
     <ul>
       <%= for group <- @created_groups do %>
         <div class="groups-list__item-container">

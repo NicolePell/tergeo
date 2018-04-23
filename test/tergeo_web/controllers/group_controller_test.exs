@@ -14,6 +14,7 @@ defmodule Tergeo.GroupControllerTest do
     assert html_response(conn, 200) =~ "Start your new group"
   end
 
+  # FIX: This test is passing even when user association is not created
   test "#create successfully creates a group and redirects to the dashboard for that group" do
     conn = 
       build_conn()
@@ -50,7 +51,7 @@ defmodule Tergeo.GroupControllerTest do
       |> assign(:user, user)
       |> get(group_path(build_conn(), :index))
 
-    assert html_response(conn, 200) =~ "Your Groups"
+    assert html_response(conn, 200) =~ "Your Created Groups"
     assert html_response(conn, 200) =~ group.name
     refute html_response(conn, 200) =~ other_group.name
   end
