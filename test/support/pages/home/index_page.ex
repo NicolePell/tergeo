@@ -24,6 +24,16 @@ defmodule Tergeo.HomePage do
     fill_in_google_password(password)
   end
 
+  def click_sign_out_with_google_link() do
+    find_element(:class, "google-sign-out__link")
+    |> click
+  end
+
+  def has_message_to_get_started?(message) do
+    message_element = find_element(:class, "nav__get-started-message")
+    visible_text(message_element) == message
+  end
+
   defp fill_in_google_username(username) do
     fill_field({:name, "identifier"}, username)
 

@@ -1,9 +1,11 @@
-defmodule Tergeo.Acceptance.GroupNewTest do
+defmodule Tergeo.Acceptance.CreateNewGroupTest do
     use TergeoWeb.AcceptanceCase
   
     alias Tergeo.{GroupNewPage, GroupShowPage}
+
+    @moduletag :pending
     
-    test "when I submit a valid a new group form, I see my new group dashboard" do
+    test "when I submit a valid group form I am redirected to my group dashboard where I see my new group" do
       GroupNewPage.visit()
   
       GroupNewPage.fill_in_form("Gryffindor")

@@ -1,7 +1,9 @@
-defmodule Tergeo.Acceptance.GroupIndexTest do
+defmodule Tergeo.Acceptance.GroupDashboardTest do
   use TergeoWeb.AcceptanceCase
 
   alias Tergeo.{HomePage, GroupIndexPage}
+
+  @moduletag :pending
 
   setup do
     Hound.start_session
@@ -16,12 +18,23 @@ defmodule Tergeo.Acceptance.GroupIndexTest do
     assert GroupIndexPage.has_no_created_groups_message?()
   end
 
-  test "a list of groups are displayed" do
+  test "a list of groups I belong to are displayed" do
     groups = insert_list(3, :group)
     
     assert GroupIndexPage.has_group?(groups |> Enum.at(0))
     assert GroupIndexPage.has_group?(groups |> Enum.at(1))
     assert GroupIndexPage.has_group?(groups |> Enum.at(2))
+  end
+
+  test "only groups I belong to are displayed" do
+    user = insert(:user)
+    my_group = insert(:group, owner: user)
+
+    other_user = insert(:user)
+    other_group = insert(:group, owner: other_user)
+    
+    assert GroupIndexPage.has_group?(my_group)
+    refute GroupIndexPage.has_group?(other_group)
   end
 
 end
