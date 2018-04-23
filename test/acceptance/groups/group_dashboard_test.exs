@@ -13,28 +13,13 @@ defmodule Tergeo.Acceptance.GroupDashboardTest do
     
     :ok
   end
-    
-  test "a message is shown when I haven't added any groups yet" do
-    assert GroupIndexPage.has_no_created_groups_message?()
-  end
 
-  test "a list of groups I belong to are displayed" do
-    groups = insert_list(3, :group)
+  test "navigating to group dashboard shows further details" do
+    group = insert(:group)
+    GroupIndexPage.view_group(group)
     
-    assert GroupIndexPage.has_group?(groups |> Enum.at(0))
-    assert GroupIndexPage.has_group?(groups |> Enum.at(1))
-    assert GroupIndexPage.has_group?(groups |> Enum.at(2))
-  end
-
-  test "only groups I belong to are displayed" do
-    user = insert(:user)
-    my_group = insert(:group, owner: user)
-
-    other_user = insert(:user)
-    other_group = insert(:group, owner: other_user)
-    
-    assert GroupIndexPage.has_group?(my_group)
-    refute GroupIndexPage.has_group?(other_group)
+    assert GroupShowPage.current_page?(group)
+    assert GroupShowPage.has_group_name?(group.name)
   end
 
 end

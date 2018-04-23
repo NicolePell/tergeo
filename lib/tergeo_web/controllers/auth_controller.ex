@@ -32,7 +32,7 @@ defmodule TergeoWeb.AuthController do
         conn
         |> put_flash(:info, "You have successfully signed in!")
         |> put_session(:user_id, user.id)
-        |> redirect(to: chore_path(conn, :index))
+        |> redirect(to: group_path(conn, :index))
       {:error, _reason} ->
         conn
         |> put_flash(:error, "There was error attempting to sign you in.")

@@ -11,7 +11,9 @@
       <%= for group <- @created_groups do %>
         <div class="groups-list__item-container">
           <li class="groups-list__group-<%= group.id %>">
-            <%= group.name %>
+            <a class="groups-list__group-link-<%= group.id %>" href="<%= group_path(@conn, :show, group) %>">
+              <%= group.name %>
+            </a>
           </li>
         </div>
       <% end %>

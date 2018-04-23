@@ -18,5 +18,8 @@ defmodule Tergeo.GroupIndexPage do
     find_element(:class, "groups-list__group-#{group.id}")
   end
 
-
+  def view_group(group) do
+    find_element(:class, "groups-list__group-link-#{group.id}")
+    |> click
+  end
 end

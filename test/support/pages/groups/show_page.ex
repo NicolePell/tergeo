@@ -12,4 +12,8 @@ defmodule Tergeo.GroupShowPage do
     visible_text(alert_message) == message
   end
 
+  def current_page?(group) do
+    current_path() == "/groups/#{group.id}"
+  end
+
 end
