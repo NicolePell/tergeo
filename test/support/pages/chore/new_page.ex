@@ -9,6 +9,12 @@ defmodule Tergeo.ChoreNewPage do
     fill_field({:class, "chore-form__description"}, description)
   end
 
+  def fill_in_form(description, group) do
+    fill_field({:class, "chore-form__description"}, description)
+    find_element(:css, "#chore-form__groups option[value='#{group.name}']") 
+    |> click()
+  end
+  
   def submit_form() do
     click({:class, "chore-form__submit"})
   end
