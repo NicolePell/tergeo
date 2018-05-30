@@ -3,8 +3,6 @@ defmodule Tergeo.Acceptance.ViewingAllMyGroupsTest do
 
   alias Tergeo.{HomePage, GroupIndexPage}
 
-  @moduletag :pending
-
   setup do
     Hound.start_session
 

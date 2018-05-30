@@ -3,8 +3,6 @@ defmodule Tergeo.Acceptance.ViewingChoreDetailsTest do
 
   alias Tergeo.{ChoreIndexPage, ChoreShowPage, ChoreNewPage, HomePage}
 
-  @moduletag :pending
-  
   setup do
     Hound.start_session
 

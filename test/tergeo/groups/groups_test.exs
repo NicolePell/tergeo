@@ -6,7 +6,6 @@ defmodule Tergeo.GroupsTest do
   alias Tergeo.Groups
   alias Tergeo.Groups.Group
 
-  @moduletag :pending
   describe "groups" do
 
     @valid_attrs %{name: "Gryffindor"}

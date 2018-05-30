@@ -3,8 +3,6 @@ defmodule Tergeo.Acceptance.AddingANewChoreTest do
 
   alias Tergeo.{HomePage, ChoreIndexPage, ChoreNewPage}
 
-  @moduletag :pending
-
   setup do
     Hound.start_session
     Hound.Helpers.Cookie.delete_cookies()

@@ -3,8 +3,6 @@ defmodule Tergeo.Acceptance.CreateNewGroupTest do
   
     alias Tergeo.{GroupNewPage, GroupShowPage}
 
-    @moduletag :pending
-    
     test "when I submit a valid group form I am redirected to my group dashboard where I see my new group" do
       GroupNewPage.visit()
   

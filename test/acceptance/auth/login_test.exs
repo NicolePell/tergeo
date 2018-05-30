@@ -11,7 +11,6 @@ defmodule Tergeo.Acceptance.LoginTest do
     assert HomePage.has_welcome_message?("Welcome Tergeo!") 
   end
   
-  @tag :pending
   test "a user can sign out" do
     HomePage.visit()
     HomePage.click_sign_in_with_google_link()
