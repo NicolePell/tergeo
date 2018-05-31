@@ -12,7 +12,7 @@ defmodule Tergeo.Acceptance.GroupDashboardTest do
     :ok
   end
 
-  test "navigating to group dashboard shows further details" do
+  test "show group details" do
     group = insert(:group)
     GroupIndexPage.view_group(group)
     

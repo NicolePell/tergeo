@@ -1,13 +1,12 @@
-defmodule Tergeo.Acceptance.ViewingAllMyGroupsTest do
+defmodule Tergeo.Acceptance.ViewingGroupsTest do
   use TergeoWeb.AcceptanceCase
 
-  alias Tergeo.{HomePage, GroupIndexPage}
+  alias Tergeo.GroupIndexPage
 
   setup do
     Hound.start_session
 
     GroupIndexPage.visit
-    HomePage.sign_test_user_in
     
     :ok
   end
@@ -24,7 +23,7 @@ defmodule Tergeo.Acceptance.ViewingAllMyGroupsTest do
     assert GroupIndexPage.has_group?(groups |> Enum.at(2))
   end
 
-  test "only groups I belong to are displayed" do
+  test "groups I do not belong to are not displayed" do
     user = insert(:user)
     my_group = insert(:group, owner: user)
 

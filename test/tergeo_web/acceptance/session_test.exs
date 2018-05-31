@@ -1,8 +1,8 @@
-defmodule Tergeo.Acceptance.LoginTest do
+defmodule Tergeo.Acceptance.SessionTest do
   use TergeoWeb.AcceptanceCase
 
   alias Tergeo.HomePage
-  
+
   test "a user can sign in" do
     HomePage.visit()
     HomePage.click_sign_in_with_google_link()

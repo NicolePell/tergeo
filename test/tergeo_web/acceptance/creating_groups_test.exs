@@ -1,4 +1,4 @@
-defmodule Tergeo.Acceptance.CreateNewGroupTest do
+defmodule Tergeo.Acceptance.CreatingGroupsTest do
     use TergeoWeb.AcceptanceCase
   
     alias Tergeo.{GroupNewPage, GroupShowPage}

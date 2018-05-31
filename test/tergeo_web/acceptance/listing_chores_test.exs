@@ -1,17 +1,17 @@
-defmodule Tergeo.Acceptance.ChoreIndexTest do
+defmodule Tergeo.Acceptance.ListingChoresTest do
   use TergeoWeb.AcceptanceCase
 
-  alias Tergeo.{HomePage, ChoreIndexPage}
+  alias Tergeo.ChoreIndexPage
 
   setup do
     Hound.start_session
 
     ChoreIndexPage.visit()
-    HomePage.sign_test_user_in()
     
     :ok
   end
-    
+  
+  @tag :login_test_user
   test "a message is shown when I haven't added any chores yet" do
     assert ChoreIndexPage.has_no_chores_message?()
   end

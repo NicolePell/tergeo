@@ -1,4 +1,4 @@
-defmodule Tergeo.Acceptance.AddingANewChoreTest do
+defmodule TergeoWeb.Acceptance.AddingChoresTest do
   use TergeoWeb.AcceptanceCase
 
   alias Tergeo.{HomePage, ChoreIndexPage, ChoreNewPage}
@@ -14,12 +14,8 @@ defmodule Tergeo.Acceptance.AddingANewChoreTest do
 
     :ok
   end
-
-  test "when I click the add a chore button I am navigated to the new chore form" do
-    assert_current_path(ChoreNewPage.path())
-  end
   
-  test "when I submit a valid a chore, I see my new chore displayed on the index page" do
+  test "successfully adding a chore with valid details" do
     ChoreNewPage.fill_in_form("Aqua Eructo!")
     ChoreNewPage.submit_form()
 
@@ -29,14 +25,14 @@ defmodule Tergeo.Acceptance.AddingANewChoreTest do
     assert ChoreIndexPage.has_flash_message?("Your chore has been added successfully!")
   end
 
-  test "when I submit a chore without a description, I see validation messages" do
+  test "shows validation messages for invalid details" do
     ChoreNewPage.submit_form()
 
     assert ChoreNewPage.has_help_block?("Description can't be blank")
     assert ChoreNewPage.has_flash_message?("Your chore could not be created, please fix the errors below")
   end
 
-  test "groups I belong to are shown as options in the new chore form" do
+  test "selecting groups I belong to when adding a chore" do
     user = insert(:user)
     group = insert(:group, user)
 
