@@ -2,20 +2,26 @@
   <%= if Enum.empty? @chores do %>
     <p class="chores-list__no-chores">You haven't added any chores yet.</p>
   <% else %>
-    <h4 class="chores-list__heading">Your Chores List</h4>
-      <ul>
-        <%= for chore <- @chores do %>
-          <div class="chores-list__item-container">
-            <li class="chores-list__chore-<%= chore.id %>">
-              <a class="chores-list__chore-link-<%= chore.id %>" href="<%= chore_path(@conn, :show, chore) %>">
-                <%= chore.description %>
-              </a>
-            </li>
+    <ul class="collection with-header">
+      <li class="collection-header chores-list__heading"><h4>Your Chores</h4></li>
+      
+      <%= for chore <- @chores do %>
+        <li class="collection-item chores-list__chore-<%= chore.id %>">
+          <div class="row chores--list__row">
+            <form>
+              <div class="col s10">
+                <a href="<%= chore_path(@conn, :show, chore) %>" class="chores-list__chore-link-<%= chore.id %>"><%= chore.description %></a>
+              </div>
+              <div class="col s2 right-align">
+                <input type="checkbox" class="secondary-content chores-list__chore-checkbox-<%= chore.id %>" /><label></label>
+              </div>
+            </form>
           </div>
-        <% end %>
-      </ul>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
   
-  <a href="/chores/new" class="chores-list__add-chore">Add a new chore</a>
+  <a href="<%= chore_path(@conn, :new) %>" class="chores-list__add-chore">Add a new chore</a>
   
 </section>

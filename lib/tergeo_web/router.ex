@@ -19,13 +19,13 @@ defmodule TergeoWeb.Router do
     pipe_through :browser 
 
     get "/", GroupController, :index
+    resources "/chores", ChoreController
   end
   
   scope "/", TergeoWeb do
     pipe_through [:browser, TergeoWeb.Plugs.RequireLogin] 
     
     resources "/groups", GroupController
-    resources "/chores", ChoreController
   end
   
   scope "/auth", TergeoWeb do
