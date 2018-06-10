@@ -11,7 +11,6 @@ defmodule Tergeo.Acceptance.ListingChoresTest do
     :ok
   end
   
-  @tag :login_test_user
   test "a message is shown when I haven't added any chores yet" do
     assert ChoreIndexPage.has_no_chores_message?()
   end

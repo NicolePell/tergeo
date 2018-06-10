@@ -37,10 +37,21 @@ defmodule TergeoWeb.ConnCase do
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Tergeo.Repo)
 
+    conn = if tags[:login_test_user] do
+      add_user(Phoenix.ConnTest.build_conn(), tags[:login_test_user])
+    else
+      Phoenix.ConnTest.build_conn()
+    end
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Tergeo.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
+
+  defp add_user(conn, true) do
+    user = Tergeo.FactoryHelpers.build(:user)
+  end
+  
 end
