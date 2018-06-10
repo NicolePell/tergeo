@@ -8,14 +8,21 @@
       <%= for chore <- @chores do %>
         <li class="collection-item chores-list__chore-<%= chore.id %>">
           <div class="row chores--list__row">
-            <form>
-              <div class="col s10">
-                <a href="<%= chore_path(@conn, :show, chore) %>" class="chores-list__chore-link-<%= chore.id %>"><%= chore.description %></a>
+            <div class="col s4">
+              <a href="<%= chore_path(@conn, :show, chore) %>" 
+                 class="chores-list__chore-link-<%= chore.id %>">
+                    <%= chore.description %>
+              </a>
+            </div>
+            <div class="col s4">
+              <div class="chores-list__completed">
+                Done? <%= chore.is_complete %>
               </div>
-              <div class="col s2 right-align">
-                <input type="checkbox" class="secondary-content chores-list__chore-checkbox-<%= chore.id %>" /><label></label>
-              </div>
-            </form>
+            </div>
+            <div class="col s4 right-align">
+              <a href="<%= chore_path(@conn, :complete_chore, chore) %>" 
+                 class="chores-list__mark-done">Mark as done</a>
+            </div>
           </div>
         </li>
       <% end %>

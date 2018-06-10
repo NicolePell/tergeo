@@ -27,13 +27,28 @@ defmodule TergeoWeb.ChoreController do
         |> put_flash(:error, "Your chore could not be created, please fix the errors below")
         |> render("new.html", changeset: changeset)
     end
-
   end
 
   def show(conn, %{"id" => id}) do
     chore = Chores.get_chore!(id)
 
     render conn, "show.html", chore: chore
+  end
+
+  def complete_chore(conn, %{"id" => id}) do
+    chore = Chores.get_chore!(id)
+
+    case Chores.update_chore(chore, %{is_complete: true}) do
+      {:ok, chore} ->
+        conn
+        |> put_flash(:info, "You completed the chore: #{chore.description}")
+        |> redirect(to: chore_path(conn, :index))
+      {:error, _} ->
+        conn
+        |> put_flash(:info, "Error updating chore")
+        |> redirect(to: chore_path(conn, :index))
+    end
+
   end
 
 end

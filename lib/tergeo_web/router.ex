@@ -19,7 +19,10 @@ defmodule TergeoWeb.Router do
     pipe_through :browser 
 
     get "/", GroupController, :index
-    resources "/chores", ChoreController
+    resources "/chores", ChoreController, only: [:index, :show, :new, :create]
+    
+    get "/chores/:id/complete_chore", ChoreController, :complete_chore
+    put "/chores/:id/complete_chore", ChoreController, :complete_chore
   end
   
   scope "/", TergeoWeb do

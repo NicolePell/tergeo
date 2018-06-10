@@ -54,5 +54,11 @@ defmodule Tergeo.Chores do
     |> Chore.changeset(attrs)
     |> Repo.insert()
   end
-  
+
+  def update_chore(chore, attrs) do
+    chore
+    |> Chore.changeset(attrs)
+    |> Repo.update
+  end
+
 end

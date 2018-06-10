@@ -45,4 +45,17 @@ defmodule Tergeo.ChoreTest do
     assert {:error, %Ecto.Changeset{}} = Chores.create_chore(@invalid_attrs)
   end
 
+  test "update_chore/2 returns the updated chore with valid data" do
+    chore = chore_fixture()
+    assert chore.is_complete == false
+
+    assert {:ok, %Chore{} = chore} = Chores.update_chore(chore, %{is_complete: true})
+    assert chore.is_complete == true
+  end
+
+  test "update_chore/2 returns an error changeset with invalid data" do
+    chore = chore_fixture()
+    assert {:error, %Ecto.Changeset{}} = Chores.update_chore(chore, @invalid_attrs)
+  end
+
 end

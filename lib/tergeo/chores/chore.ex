@@ -5,6 +5,7 @@ defmodule Tergeo.Chores.Chore do
 
   schema "chores" do
     field :description, :string
+    field :is_complete, :boolean, default: false
 
     timestamps()
 
@@ -14,7 +15,7 @@ defmodule Tergeo.Chores.Chore do
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:description])
+    |> cast(params, [:description, :is_complete])
     |> validate_required([:description])
   end
 
