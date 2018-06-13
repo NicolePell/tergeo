@@ -3,3 +3,27 @@
 .row {
   margin-bottom: 0 !important;
 }
+
+.charleston_green-bg {
+  background-color: #24242c !important;
+}
+
+.blue_sapphire-bg {
+  background-color: #175f68 !important;
+}
+
+.blue_sapphire-text {
+  color: #175f68 !important;
+}
+
+.light_sea_green-bg {
+  background-color: #1bd4a6 !important;
+}
+
+.mustard-bg {
+  background-color: #ffd54f !important;
+}
+
+.mustard-text {
+  color: #ffd54f !important;
+}

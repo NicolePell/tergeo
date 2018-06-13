@@ -1,19 +1,15 @@
-<nav class="teal darken-3">
-  <div class="nav-wrapper container">
+<nav class="charleston_green-bg">
+  <div class="nav-wrapper">
     <a href="/" class="brand-logo">Tergeo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <%= if @conn.assigns[:user] do %>
         <li class="nav__welcome-message">Welcome <%= @conn.assigns.user.first_name %>!</li>
-        <li>
-          <%= link "Chores", to: chore_path(@conn, :index) %>
-        </li>
-        <li>
-          <%= link "Add chore", to: chore_path(@conn, :new) %>
-        </li>
-        <li>
-          <%= link "Start a group", to: group_path(@conn, :new), 
-              class: "start-group__link" %>
-        </li>
+        <li><%= link "Chores", to: chore_path(@conn, :index) %></li>
+        <li><%= link "Add chore", to: chore_path(@conn, :new) %></li>
+        <li><%= link "Start a group", to: group_path(@conn, :new) %></li>
         <li><%= link "Sign out", to: auth_path(@conn, :delete) %></li>
       <% else %>
         <li>
@@ -24,5 +20,23 @@
         </li>
       <% end %>
     </ul>
+
+    <ul id="mobile-demo" class="sidenav">
+      <%= if @conn.assigns[:user] do %>
+        <li class="nav__welcome-message">Welcome <%= @conn.assigns.user.first_name %>!</li>
+        <li><%= link "Chores", to: chore_path(@conn, :index) %></li>
+        <li><%= link "Add chore", to: chore_path(@conn, :new) %></li>
+        <li><%= link "Start a group", to: group_path(@conn, :new) %></li>
+        <li><%= link "Sign out", to: auth_path(@conn, :delete) %></li>
+      <% else %>
+        <li>
+          <%= link "Sign in with Google", 
+              to: auth_path(@conn, :request, "google", 
+              scope: "email profile"), 
+              class: "button google-sign-in__link" %>
+        </li>
+      <% end %>
+    </ul>
+
   </div>
 </nav>
