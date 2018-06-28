@@ -26,3 +26,5 @@ erl_crash.dump
 /data
 
 .DS_Store
+.elixir_ls
+.idea
