@@ -6,29 +6,7 @@ defmodule Tergeo.Groups do
   import Ecto.Query, warn: false
 
   alias Tergeo.Repo
-
   alias Tergeo.Groups.Group
-
-  @doc """
-  Returns the list of groups for a given user.
-
-  ## Examples
-
-      iex> list_created_groups!(123)
-      [%Group{}, ...]
-
-  """
-  def list_created_groups!(user) do
-    user
-    |> Ecto.assoc(:created_groups)
-    |> Repo.all()
-    |> Repo.preload(:owner)
-
-    # """
-    # REVIEW: Have to run preload to make the test pass.
-    # Fails with: #Ecto.Association.NotLoaded<association :owner is not loaded>
-    # """
-  end
 
   @doc """
   Gets a single group.

@@ -1,6 +1,9 @@
 defmodule Tergeo.UserTest do
   use Tergeo.DataCase
 
+  import Tergeo.FactoryHelpers
+
+  alias Tergeo.Users
   alias Tergeo.Users.User
 
   @valid_attrs %{ 
@@ -20,5 +23,12 @@ defmodule Tergeo.UserTest do
   test "changeset with invalid attributes" do
     changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
+  end
+
+  test "list_created_groups/1 returns all groups created by a given user" do
+    user = insert(:user)
+    group = insert(:group, owner: user)
+
+    assert Users.list_created_groups!(user) == [group]
   end
 end

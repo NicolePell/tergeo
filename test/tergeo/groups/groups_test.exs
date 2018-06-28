@@ -30,12 +30,5 @@ defmodule Tergeo.GroupsTest do
       assert {:error, %Ecto.Changeset{}} = Groups.create_group(user, @invalid_attrs)
     end
 
-    test "list_created_groups/1 returns all groups created by a given user" do
-      user = insert(:user)
-      group = insert(:group, owner: user)
-
-      assert Groups.list_created_groups!(user) == [group]
-    end
-
   end
 end

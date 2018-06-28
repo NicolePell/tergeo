@@ -1,6 +1,7 @@
 defmodule TergeoWeb.GroupController do
   use TergeoWeb.Web, :controller
 
+  alias Tergeo.Users
   alias Tergeo.Groups
   alias Tergeo.Groups.Group
 
@@ -8,7 +9,7 @@ defmodule TergeoWeb.GroupController do
     if conn.assigns.user == nil do
       render conn, "index.html", created_groups: []
     else
-      created_groups = Groups.list_created_groups!(conn.assigns.user)
+      created_groups = Users.list_created_groups!(conn.assigns.user)
       render conn, "index.html", created_groups: created_groups
     end
   end
