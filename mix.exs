@@ -57,8 +57,8 @@ defmodule Tergeo.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:ueberauth, "~> 0.4"},
       {:ueberauth_google, "~> 0.7"},
-      
-      {:ex_machina, "~> 2.1.0", only: :test},
+
+      {:ex_machina, "~> 2.2", only: :test},
       {:hound, "~> 1.0", only: :test}
     ]
   end
