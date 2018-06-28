@@ -6,8 +6,6 @@ defmodule Tergeo.GroupsTest do
   alias Tergeo.Groups
   alias Tergeo.Groups.Group
 
-  @moduletag :ignore
-
   describe "groups" do
 
     @valid_attrs %{name: "Gryffindor"}

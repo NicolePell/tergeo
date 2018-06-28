@@ -3,13 +3,11 @@ defmodule TergeoWeb.Acceptance.CompletingChoresTest do
 
   alias Tergeo.ChoreIndexPage
 
-  @moduletag :progress
-
   setup do
-    
+
     :ok
   end
-  
+
   test "mark chore as complete" do
     insert(:chore)
     ChoreIndexPage.visit()

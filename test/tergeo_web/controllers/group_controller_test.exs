@@ -6,7 +6,7 @@ defmodule Tergeo.GroupControllerTest do
   @valid_attrs %{name: "Gryffindor"}
 
   test "#new renders a group form" do
-    conn = 
+    conn =
       build_conn()
       |> assign(:user, insert(:user))
       |> get(group_path(build_conn(), :new))
@@ -16,18 +16,30 @@ defmodule Tergeo.GroupControllerTest do
 
   # FIX: This test is passing even when user association is not created
   test "#create successfully creates a group and redirects to the dashboard for that group" do
-    conn = 
+    conn =
       build_conn()
       |> assign(:user, insert(:user))
       |> post(group_path(build_conn(), :create, group: @valid_attrs))
 
     group = Repo.get_by!(Group, @valid_attrs)
-    
+
     assert redirected_to(conn) == group_path(conn, :show, group)
     assert group.name == "Gryffindor"
   end
 
   test "#show renders the group dashboard" do
+    group = insert(:group)
+    user = insert(:user)
+
+    conn =
+      build_conn()
+      |> assign(:user, user)
+      |> get(group_path(build_conn(), :show, group))
+
+    assert html_response(conn, :ok) =~ ~r/#{group.name}/s
+  end
+
+  test "#show renders all the chores that belong to the group" do
     group = insert(:group)
     user = insert(:user)
 

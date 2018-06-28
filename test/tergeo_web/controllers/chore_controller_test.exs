@@ -8,7 +8,6 @@ defmodule Tergeo.ChoreControllerTest do
 
   defp chore_count(query), do: Repo.one(from c in query, select: count(c.id))
 
-  @tag :ignore
   test "requires a logged in user on all chores pages" do
     chore = insert(:chore)
 
@@ -24,7 +23,7 @@ defmodule Tergeo.ChoreControllerTest do
     end)
   end
 
-  test "#index renders a list of chores" do
+  test "#index renders a list" do
     user = insert(:user)
     chore = insert(:chore)
 

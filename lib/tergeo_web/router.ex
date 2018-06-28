@@ -16,21 +16,21 @@ defmodule TergeoWeb.Router do
   end
 
   scope "/", TergeoWeb do
-    pipe_through :browser 
+    pipe_through :browser
 
     get "/", GroupController, :index
+  end
+
+  scope "/", TergeoWeb do
+    pipe_through [:browser, TergeoWeb.Plugs.RequireLogin]
+
     resources "/chores", ChoreController, only: [:index, :show, :new, :create]
-    
     get "/chores/:id/complete_chore", ChoreController, :complete_chore
     put "/chores/:id/complete_chore", ChoreController, :complete_chore
-  end
-  
-  scope "/", TergeoWeb do
-    pipe_through [:browser, TergeoWeb.Plugs.RequireLogin] 
-    
+
     resources "/groups", GroupController
   end
-  
+
   scope "/auth", TergeoWeb do
     pipe_through :browser
 
@@ -38,5 +38,5 @@ defmodule TergeoWeb.Router do
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :new
   end
-  
+
 end

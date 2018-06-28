@@ -14,9 +14,6 @@ defmodule Tergeo.Users.User do
 
     timestamps()
 
-    many_to_many :chores, Tergeo.Chores.Chore, join_through: "users_chores"
-    has_many :created_chores, Tergeo.Chores.Chore, foreign_key: :owner_id
-    
     has_many :created_groups, Tergeo.Groups.Group, foreign_key: :owner_id
   end
 
