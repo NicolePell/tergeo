@@ -27,3 +27,9 @@
 .mustard-text {
   color: #ffd54f !important;
 }
+
+/* ############# NAVBAR ############# */
+.nav-wrapper {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
