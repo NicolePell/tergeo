@@ -5,4 +5,4 @@ ExUnit.start()
 
 Ecto.Adapters.SQL.Sandbox.mode(Tergeo.Repo, :manual)
 
-ExUnit.configure(exclude: [acceptance: true, ignore: true])
+ExUnit.configure(exclude: [acceptance: true])

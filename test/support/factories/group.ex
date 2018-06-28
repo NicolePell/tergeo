@@ -11,7 +11,7 @@ defmodule Tergeo.Factory.Group do
           owner: build(:user)
         }
       end
-      
+
     end
   end
 end
