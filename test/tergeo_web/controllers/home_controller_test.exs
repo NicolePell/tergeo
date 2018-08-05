@@ -6,6 +6,6 @@ defmodule Tergeo.HomeControllerTest do
 
     assert html_response(conn, 200) =~ "You haven't created any groups yet."
     assert html_response(conn, 200) =~ "Start a group now..."
-    
   end
+
 end
