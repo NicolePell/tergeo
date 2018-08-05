@@ -40,14 +40,19 @@ defmodule Tergeo.GroupControllerTest do
 
   test "#show renders all the chores that belong to the group" do
     group = insert(:group)
-    user = insert(:user)
+    chore = insert(:chore, group: group)
+
+    random_group = insert(:group)
+    random_chore = insert(:chore, group: random_group)
 
     conn =
       build_conn()
-      |> assign(:user, user)
+      |> assign(:user, insert(:user))
       |> get(group_path(build_conn(), :show, group))
 
     assert html_response(conn, :ok) =~ ~r/#{group.name}/s
+    assert html_response(conn, :ok) =~ chore.description
+    refute html_response(conn, :ok) =~ random_chore.description
   end
 
   test "#index renders a list of groups that the user has created" do

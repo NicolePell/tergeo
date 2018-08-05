@@ -14,9 +14,18 @@ defmodule Tergeo.GroupViewTest do
 
   test "renders show.html" do 
     group = insert(:group)
-    content = render_to_string(TergeoWeb.GroupView, "show.html", %{group: group})
+    group_chores = insert_list(3, :chore)
+
+    content = render_to_string(
+      TergeoWeb.GroupView,
+      "show.html",
+      conn: build_conn(),
+      group: group,
+      group_chores: group_chores
+    )
 
     assert String.contains?(content, group.name)
+    assert String.contains?(content, List.first(group_chores).description)
   end
 
 end

@@ -2,4 +2,24 @@
   <p class="group-dashboard__group-name">
     <%= @group.name %>
   </p>
+
+  <%= if Enum.empty? @group_chores do %>
+      <p class="chores-list__no-chores">You haven't added any chores yet.</p>
+  <% else %>
+      <div class="row">
+          <%= for chore <- @group_chores do %>
+              <div class="col s3">
+                  <div class="card small deep-purple lighten-2">
+                      <div class="card-content white-text">
+                          <span class="card-title">
+                              <a href="<%= chore_path(@conn, :show, chore) %>" class="chores-list__chore-link white-text">
+                                  <%= chore.description %>
+                              </a>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          <% end %>
+      </div>
+  <% end %>
 </section>

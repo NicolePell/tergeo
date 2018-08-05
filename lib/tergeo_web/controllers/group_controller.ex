@@ -31,8 +31,9 @@ defmodule TergeoWeb.GroupController do
 
   def show(conn, %{"id" => id}) do
     group = Groups.get_group!(id)
+    group_chores = Groups.get_chores(group)
 
-    render conn, "show.html", group: group
+    render conn, "show.html", group: group, group_chores: group_chores
   end
 
 end
