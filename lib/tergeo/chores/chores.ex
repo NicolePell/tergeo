@@ -4,8 +4,8 @@ defmodule Tergeo.Chores do
   """
 
   import Ecto.Query, warn: false
-  alias Tergeo.Repo
 
+  alias Tergeo.Repo
   alias Tergeo.Chores.Chore
 
   @doc """

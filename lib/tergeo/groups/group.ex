@@ -11,6 +11,7 @@ defmodule Tergeo.Groups.Group do
     timestamps()
 
     belongs_to :owner, Tergeo.Users.User, foreign_key: :owner_id
+    has_many :chores, Tergeo.Chores.Chore
   end
 
   @doc false

@@ -30,5 +30,15 @@ defmodule Tergeo.GroupsTest do
       assert {:error, %Ecto.Changeset{}} = Groups.create_group(user, @invalid_attrs)
     end
 
+    test "get_chores/1 returns all chores" do
+      group = insert(:group)
+      chore = insert(:chore, group: group)
+
+      random_chore = insert(:chore)
+
+      assert Groups.get_chores(group) == [chore]
+      refute Groups.get_chores(group) == [random_chore]
+    end
+
   end
 end

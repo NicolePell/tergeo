@@ -45,4 +45,21 @@ defmodule Tergeo.Groups do
     |> Group.changeset(group)
     |> Repo.insert()
   end
+
+  @doc """
+  Returns the list of chores for a given group.
+
+  ## Examples
+
+      iex> get_chores!(123)
+      [%Group{}, ...]
+
+  """
+  def get_chores(group) do
+    group
+    |> Ecto.assoc(:chores)
+    |> Repo.all()
+    |> Repo.preload(group: :owner)
+  end
+
 end
