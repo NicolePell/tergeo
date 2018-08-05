@@ -36,6 +36,10 @@ defmodule Tergeo.ChoreTest do
     assert chore.group_id == group.id
   end
 
+  test "create_chore/2 with invalid data creates a chore" do
+    assert {:error, %Ecto.Changeset{}} = Chores.create_chore(%{description: nil, group_id: nil})
+  end
+
   test "update_chore/2 returns the updated chore with valid data" do
     chore = insert(:chore)
     assert chore.is_complete == false
