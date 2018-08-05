@@ -19,6 +19,7 @@ defmodule Tergeo.Chores do
   """
   def list_chores do
     Repo.all(Chore)
+    |> Repo.preload(group: :owner)
   end
 
   @doc """
@@ -35,7 +36,10 @@ defmodule Tergeo.Chores do
       ** (Ecto.NoResultsError)
 
   """
-  def get_chore!(id), do: Repo.get!(Chore, id)
+  def get_chore!(id) do
+    Repo.get!(Chore, id)
+    |> Repo.preload(group: :owner)
+  end
 
   @doc """
   Creates a chore.
@@ -55,6 +59,18 @@ defmodule Tergeo.Chores do
     |> Repo.insert()
   end
 
+  @doc """
+  Updates a chore.
+
+  ## Examples
+
+      iex> update_chore(chore, %{field: value})
+      {:ok, %Chore{}}
+
+      iex> update_chore(chore, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
   def update_chore(chore, attrs) do
     chore
     |> Chore.changeset(attrs)

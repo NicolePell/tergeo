@@ -8,6 +8,7 @@ defmodule Tergeo.Factory.Chore do
       def chore_factory do
         %Chore{
           description: sequence(:description, &"Cleanify #{&1}"),
+          group: build(:group)
         }
       end
       

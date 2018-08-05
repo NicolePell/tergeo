@@ -6,16 +6,15 @@ defmodule Tergeo.ChoreTest do
   alias Tergeo.Chores
   alias Tergeo.Chores.Chore
 
-  @valid_attrs %{description: "Aqua Eructo"}
-  @invalid_attrs %{description: nil}
-
   test "changeset with valid attributes" do
-    changeset = Chore.changeset(%Chore{}, @valid_attrs)
+    group = insert(:group)
+
+    changeset = Chore.changeset(%Chore{}, %{description: "Aqua Eructo", group_id: group.id})
     assert changeset.valid?
   end
 
   test "changeset with invalid attributes" do
-    changeset = Chore.changeset(%Chore{}, @invalid_attrs)
+    changeset = Chore.changeset(%Chore{}, %{description: nil})
     refute changeset.valid?
   end
 
@@ -29,13 +28,12 @@ defmodule Tergeo.ChoreTest do
     assert Chores.get_chore!(chore.id) == chore
   end
 
-  test "create_chore/1 with valid data creates a chore" do
-    assert {:ok, %Chore{} = chore} = Chores.create_chore(@valid_attrs)
-    assert chore.description == "Aqua Eructo"
-  end
+  test "create_chore/2 with valid data creates a chore" do
+    group = insert(:group)
 
-  test "create_chore/1 with invalid data returns error changeset" do
-    assert {:error, %Ecto.Changeset{}} = Chores.create_chore(@invalid_attrs)
+    assert {:ok, %Chore{} = chore} = Chores.create_chore(%{description: "Aqua Eructo", group_id: group.id})
+    assert chore.description == "Aqua Eructo"
+    assert chore.group_id == group.id
   end
 
   test "update_chore/2 returns the updated chore with valid data" do
@@ -48,7 +46,7 @@ defmodule Tergeo.ChoreTest do
 
   test "update_chore/2 returns an error changeset with invalid data" do
     chore = insert(:chore)
-    assert {:error, %Ecto.Changeset{}} = Chores.update_chore(chore, @invalid_attrs)
+    assert {:error, %Ecto.Changeset{}} = Chores.update_chore(chore, %{description: nil})
   end
 
 end
