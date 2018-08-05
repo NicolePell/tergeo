@@ -5,6 +5,8 @@
   <%= text_input f, :description, placeholder: "Description", class: "chore-form__description" %>
   <%= error_tag f, :description %>
 
+  <%= select f, :group_id,  load_user_groups(@user_groups), prompt: "Select a group", class: "chore-form_group" %>
+  <%= error_tag f, :group_id %>
+
   <%= submit "Add Chore", class: "chore-form__submit" %>
 <% end %>
-

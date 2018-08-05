@@ -2,7 +2,9 @@ defmodule TergeoWeb.ChoreController do
   use TergeoWeb.Web, :controller
 
   alias Tergeo.Chores
+  alias Tergeo.Users
   alias Tergeo.Chores.Chore
+  alias Tergeo.Groups
 
   def index(conn, _params) do
     chores = Chores.list_chores
@@ -12,12 +14,15 @@ defmodule TergeoWeb.ChoreController do
 
   def new(conn, _params) do
     changeset = Chore.changeset(%Chore{}, %{})
+    user_groups = Users.list_created_groups!(conn.assigns.user)
 
-    render conn, "new.html", changeset: changeset
+    render conn, "new.html", changeset: changeset, user_groups: user_groups
   end
 
-  def create(conn, %{"chore" => chore}) do
-    case Chores.create_chore(chore) do
+  def create(conn, %{"chore" => chore_params}) do
+    user_groups = Users.list_created_groups!(conn.assigns.user)
+
+    case Chores.create_chore(chore_params) do
       {:ok, _chore} -> 
         conn
         |> put_flash(:info, "Your chore has been added successfully!")
@@ -25,7 +30,7 @@ defmodule TergeoWeb.ChoreController do
       {:error, changeset} -> 
         conn
         |> put_flash(:error, "Your chore could not be created, please fix the errors below")
-        |> render("new.html", changeset: changeset)
+        |> render("new.html", changeset: changeset, user_groups: user_groups)
     end
   end
 
