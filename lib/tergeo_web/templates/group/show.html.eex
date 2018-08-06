@@ -9,15 +9,7 @@
       <div class="row">
           <%= for chore <- @group_chores do %>
               <div class="col s3">
-                  <div class="card small deep-purple lighten-2">
-                      <div class="card-content white-text">
-                          <span class="card-title">
-                              <a href="<%= chore_path(@conn, :show, chore) %>" class="chores-list__chore-link white-text">
-                                  <%= chore.description %>
-                              </a>
-                          </span>
-                      </div>
-                  </div>
+                <%= render TergeoWeb.ChoreView, "chore_card.html", conn: @conn, chore: chore %>
               </div>
           <% end %>
       </div>

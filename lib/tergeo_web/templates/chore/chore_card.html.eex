@@ -1,0 +1,15 @@
+<div class="card small deep-purple lighten-2">
+    <div class="card-content white-text">
+        <span class="card-title">
+            <a href="<%= chore_path(@conn, :show, @chore) %>" class="chores-list__chore-link white-text">
+                <%= @chore.description %>
+            </a>
+        </span>
+        <p class="light-blue-text text-lighten-5">Completed: <%= @chore.is_complete %></p>
+    </div>
+    <div class="card-action">
+        <a href="<%= chore_path(@conn, :complete_chore, @chore) %>" class="chores-list__mark-done yellow-text">
+            Mark as done
+        </a>
+    </div>
+</div>
