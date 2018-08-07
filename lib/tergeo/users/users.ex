@@ -6,7 +6,6 @@ defmodule Tergeo.Users do
   import Ecto.Query, warn: false
 
   alias Tergeo.Repo
-  alias Tergeo.Users.User
 
   @doc """
   Returns the list of groups for a given user.

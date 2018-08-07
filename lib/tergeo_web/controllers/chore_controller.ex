@@ -2,9 +2,8 @@ defmodule TergeoWeb.ChoreController do
   use TergeoWeb.Web, :controller
 
   alias Tergeo.Chores
-  alias Tergeo.Users
   alias Tergeo.Chores.Chore
-  alias Tergeo.Groups
+  alias Tergeo.Users
 
   def index(conn, _params) do
     chores = Chores.list_chores
