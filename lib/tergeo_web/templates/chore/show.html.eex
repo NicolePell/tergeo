@@ -1,5 +1,5 @@
 <section class="chores-details container-section">
-  <p class="chores-details__chore-description">
+  <h3 class="chores-details__chore-description">
     <%= @chore.description %>
-  </p>
+  </h3>
 </section>

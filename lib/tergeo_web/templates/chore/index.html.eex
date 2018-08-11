@@ -2,13 +2,11 @@
     <%= if Enum.empty? @chores do %>
         <p class="chores-list__no-chores">You haven't added any chores yet.</p>
     <% else %>
-        <div class="row">
+        <ul class="collection">
             <%= for chore <- @chores do %>
-                <div class="col s3">
-                    <%= render TergeoWeb.ChoreView, "chore_card.html", conn: @conn, chore: chore %>
-                </div>
+                <%= render TergeoWeb.ChoreView, "chore_card.html", conn: @conn, chore: chore %>
             <% end %>
-        </div>
+        </ul>
     <% end %>
 
     <a href="<%= chore_path(@conn, :new) %>" class="chores-list__add-chore">Add a new chore</a>

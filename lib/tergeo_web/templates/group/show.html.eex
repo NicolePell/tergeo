@@ -1,17 +1,13 @@
 <section class="group-dashboard container-section">
-  <p class="group-dashboard__group-name">
-    <%= @group.name %>
-  </p>
+    <h4 class="group-dashboard__group-name"><%= @group.name %></h4>
 
-  <%= if Enum.empty? @group_chores do %>
+    <%= if Enum.empty? @group_chores do %>
       <p class="chores-list__no-chores">You haven't added any chores yet.</p>
-  <% else %>
-      <div class="row">
-          <%= for chore <- @group_chores do %>
-              <div class="col s3">
-                <%= render TergeoWeb.ChoreView, "chore_card.html", conn: @conn, chore: chore %>
-              </div>
-          <% end %>
-      </div>
-  <% end %>
+    <% else %>
+      <ul class="collection">
+        <%= for chore <- @group_chores do %>
+            <%= render TergeoWeb.ChoreView, "chore_card.html", conn: @conn, chore: chore %>
+        <% end %>
+      </ul>
+    <% end %>
 </section>
