@@ -26,7 +26,6 @@ defmodule TergeoWeb.Router do
 
     resources "/chores", ChoreController, only: [:index, :show, :new, :create]
     get "/chores/:id/complete_chore", ChoreController, :complete_chore
-    put "/chores/:id/complete_chore", ChoreController, :complete_chore
 
     resources "/groups", GroupController
   end

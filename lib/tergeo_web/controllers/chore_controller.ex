@@ -41,8 +41,9 @@ defmodule TergeoWeb.ChoreController do
 
   def complete_chore(conn, %{"id" => id}) do
     chore = Chores.get_chore!(id)
+    changeset = %{is_complete: !chore.is_complete}
 
-    case Chores.update_chore(chore, %{is_complete: true}) do
+    case Chores.update_chore(chore, changeset) do
       {:ok, chore} ->
         conn
         |> put_flash(:info, "You completed the chore: #{chore.description}")
