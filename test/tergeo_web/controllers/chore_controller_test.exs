@@ -32,6 +32,18 @@ defmodule Tergeo.ChoreControllerTest do
     assert html_response(conn, 200) =~ chore.description
   end
 
+  test "chores list shows which group each chore belongs to" do
+    group = insert(:group)
+    chore = insert(:chore, group: group)
+
+    conn =
+      build_conn()
+      |> assign(:user, insert(:user))
+      |> get(chore_path(build_conn(), :index))
+
+    assert html_response(conn, 200) =~ chore.group.name
+  end
+
   test "#new renders a chore form" do
     user = insert(:user)
 
@@ -76,7 +88,6 @@ defmodule Tergeo.ChoreControllerTest do
     assert chore_count(Chore) == count_before
     assert html_response(conn, :ok) =~ "Your chore could not be created"
   end
-
 
   test "redirects user to new form and shows error message when group is not selected" do
     user = insert(:user)

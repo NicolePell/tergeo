@@ -6,6 +6,10 @@
   </span>
   <p>Due date</p>
 
+  <%= if @chore.group do %>
+    <p>Group: <%= @chore.group.name %></p>
+  <% end %>
+
   <a href="<%= chore_path(@conn, :complete_chore, @chore) %>" class="secondary-content">
     <%= if @chore.is_complete do %>
         <i class="material-icons">check_box</i>
