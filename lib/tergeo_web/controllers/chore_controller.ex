@@ -46,14 +46,27 @@ defmodule TergeoWeb.ChoreController do
     case Chores.update_chore(chore, changeset) do
       {:ok, chore} ->
         conn
-        |> put_flash(:info, "You completed the chore: #{chore.description}")
-        |> redirect(to: chore_path(conn, :index))
+        |> put_flash(:info, "Chore updated: #{chore.description}")
+        |> redirect_to_referer_path
       {:error, _} ->
         conn
         |> put_flash(:info, "Error updating chore")
         |> redirect(to: chore_path(conn, :index))
     end
 
+  end
+
+  defp redirect_to_referer_path(conn) do
+    path =
+      conn
+      |> Plug.Conn.get_req_header("referer")
+      |> List.first()
+      |> URI.parse()
+      |> Map.get(:path)
+
+    conn
+    |> assign(:refer_path, path)
+    |> redirect(to: path)
   end
 
 end
