@@ -8,7 +8,7 @@ defmodule TergeoWeb.Acceptance.CompletingChoresTest do
     :ok
   end
 
-  test "mark chore as complete" do
+  test "mark chore as complete from the chore list" do
     insert(:chore)
     ChoreIndexPage.visit()
 
@@ -24,6 +24,20 @@ defmodule TergeoWeb.Acceptance.CompletingChoresTest do
     message = find_element(:css, ".alert")
               |> visible_text
     assert message  =~ "You completed the chore"
+  end
+
+  test "mark chore as complete from inside the chore page" do
+    chore = insert(:chore)
+    ChoreIndexPage.visit()
+    ChoreIndexPage.view_chore(chore)
+
+    find_within_element(chore, :class, "chores-list__mark-done")
+    |> click
+
+    message = find_element(:css, ".alert")
+              |> visible_text
+
+    assert message  =~ "Chore updated: #{chore.description}"
   end
 
 end

@@ -114,5 +114,4 @@ defmodule Tergeo.ChoreControllerTest do
 
     assert html_response(conn, :ok) =~ ~r/#{chore.description}/s
   end
-
 end

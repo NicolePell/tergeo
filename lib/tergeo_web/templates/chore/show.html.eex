@@ -1,5 +1,13 @@
 <section class="chores-details container-section">
-  <h3 class="chores-details__chore-description">
-    <%= @chore.description %>
-  </h3>
+    <h3 class="chores-details__chore-description">
+        <%= @chore.description %>
+    </h3>
+
+    <a href="<%= chore_path(@conn, :complete_chore, @chore) %>">
+      <%= if @chore.is_complete do %>
+          <i class="material-icons">check_box</i>
+      <% else %>
+          <i class="material-icons">check_box_outline_blank</i>
+      <% end %>
+    </a>
 </section>
