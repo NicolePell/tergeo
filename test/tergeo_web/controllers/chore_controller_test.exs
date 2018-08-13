@@ -52,7 +52,7 @@ defmodule Tergeo.ChoreControllerTest do
       |> assign(:user, user)
       |> get(chore_path(build_conn(), :new))
 
-    assert html_response(conn, 200) =~ "Add a new chore"
+    assert html_response(conn, 200) =~ "Add a chore"
   end
 
   test "#create successfully creates a chore with valid attributes and redirects" do

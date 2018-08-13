@@ -16,7 +16,7 @@ defmodule Tergeo.ChoreViewTest do
       user_groups: user_groups
     )
 
-    assert String.contains?(content, "Add a new chore")
+    assert String.contains?(content, "Add a chore")
     assert String.contains?(content, "description")
     assert String.contains?(content, "Select a group")
   end

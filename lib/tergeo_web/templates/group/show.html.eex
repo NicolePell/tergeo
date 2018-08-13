@@ -2,7 +2,8 @@
     <h4 class="group-dashboard__group-name"><%= @group.name %></h4>
 
     <%= if Enum.empty? @group_chores do %>
-      <p class="chores-list__no-chores">You haven't added any chores yet.</p>
+      <h6 class="chores-list__no-chores">You haven't added any chores yet</h6>
+      <a href="<%= chore_path(@conn, :new) %>" class="chores-list__add-chore">Add chore</a>
     <% else %>
       <ul class="collection">
         <%= for chore <- @group_chores do %>
